@@ -1,0 +1,44 @@
+.booking-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #1a1a1a;
+    width: 500px;
+}
+
+.bookingconfirmation-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #0c0c0c;
+    width: 100%;
+    height: 70vh;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+    .bookingconfirmation-page {
+        height: 100%;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    .booking-info {
+        flex-wrap: wrap;
+        width: 90%;
+        padding: 1.2em;
+        margin: 1em auto;
+    }
+
+}

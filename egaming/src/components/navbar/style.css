@@ -1,0 +1,50 @@
+a {
+    position: relative;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    height: 50%;
+}
+
+a:visited {
+    color: rgb(255, 255, 255);
+}
+
+
+.navbar {
+    font-family: "Anton", sans-serif;
+    font-weight: 400;
+    font-size: 1.3em;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-decoration: none;
+}
+
+.active {
+    border-bottom: white 5px solid;
+    border-radius: 3px;
+}
+
+.nav-center {
+    display: flex;
+    flex-direction: row;
+    gap: 10vw;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.member-button {
+    font-size: 1.4em;
+}
+
+.login {
+    display: flex;
+    color: rgba(1, 1, 1, 0);
+    justify-content: flex-end;
+    width: 30px;
+    height: 25px;
+}

@@ -1,0 +1,25 @@
+.discord-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 4em auto;
+}
+
+.discord-info-container {
+    border-top: gray 2px solid;
+    text-align: center;
+    color: rgb(196, 196, 196);
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+@media screen and (max-width: 768px) {
+    .discord-info-container {
+        width: 80%;
+    }
+
+}

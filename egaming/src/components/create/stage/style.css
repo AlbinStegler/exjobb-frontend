@@ -1,0 +1,19 @@
+.stage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 600px;
+    width: 80vw;
+    height: 150px;
+    background-color: rgb(136, 52, 52);
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 72.32px), calc(100% - 23px) calc(100% - 23px), calc(100% - 72.32px) 100%, 72.32px 100%, 23px calc(100% - 23px), 0 calc(100% - 72.32px));
+}
+
+.stage h1 {
+    font-family: 'anton', 'arial';
+    font-weight: 100;
+    color: rgb(0, 0, 0);
+    font-size: 3em;
+    margin: 0;
+}
