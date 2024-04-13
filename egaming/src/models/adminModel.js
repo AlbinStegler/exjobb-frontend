@@ -5,7 +5,7 @@ const apiKey = process.env.REACT_APP_API_KEY;
 const adminModel = {
     checkLogin: async function checkLogin(data) {
         try {
-            const result = await fetch(`${url}/admin`, {
+            const result = await fetch(`${url}/admin/check`, {
                 method: 'POST',
                 headers: {
                     apiKey: apiKey,
