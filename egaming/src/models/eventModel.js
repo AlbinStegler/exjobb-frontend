@@ -67,7 +67,7 @@ const eventModel = {
     },
     bookSeat: async function bookSeat(data) {
         try {
-            const result = await fetch('http://localhost:1337/event/book', {
+            const result = await fetch(`${url}/event/book`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -84,7 +84,7 @@ const eventModel = {
     },
     deleteEvent: async function deleteEvent(id) {
         try {
-            const result = await fetch(`http://localhost:1337/event/${id}`, {
+            const result = await fetch(`${url}/event/${id}`, {
                 headers: {
                     'Content-Type': 'application/json',
                     'apiKey': apiKey,
