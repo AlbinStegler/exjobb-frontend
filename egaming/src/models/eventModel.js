@@ -23,6 +23,7 @@ const eventModel = {
                 method: 'POST',
                 headers: {
                     'apiKey': apiKey,
+                    'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(data),
             });
