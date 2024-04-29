@@ -14,6 +14,7 @@ const LanTerms = () => {
             <h2>Hanteringen av dina uppgifter</h2>
             <p>Du ansöker nu om medlemsskap i föreningen under 2024. Du ansluts också till Sverok. Är du mellan 6-25 år, så får föreningen bidrag för att du är medlem. Inga personuppgifter kommer att lämnas ut av Sverok.</p>
             <h2>Så behandlas dina personuppgifter</h2>
+
         </div >
     );
 };

@@ -209,7 +209,6 @@ const Event = () => {
     }
 
     const handleSubmit = async () => {
-        setLoading(true);
         let active = await eventModel.getActiveEvent();
 
         let userData = {
@@ -225,9 +224,9 @@ const Event = () => {
             "parentName": formData.parentName,
             "parentPhone": formData.parentPhone,
             "event": active.eventName,
+            "seat": seat,
         }
         // Handle form submission here
-        console.log(seat);
         function validateEmail(email) {
             var re = /\S+@\S+\.\S+/;
             return re.test(email);
@@ -237,7 +236,6 @@ const Event = () => {
         if (!validateEmail(formData.email)) {
             alert("Felaktig e-postadress");
             setCurrentStep(1);
-            setLoading(false);
             return;
         }
         // Är personen medlem?
@@ -260,37 +258,61 @@ const Event = () => {
                     "member_nick": formData.nickname,
                     "renewed": date.toString(),
                 },
-
                 "event": active.eventName,
             };
 
-            //Skapa användare om användaren inte finns skapa användare
-            //Finns användare byt plats och lan till den bokade platsen
+            if (seat) {
+                body.seat = { row: seat.row, seat: seat.nr };
+            } else if (visitor) {
+                body.visitor = visitor;
+            }
+
+            let userSuccess = false;
+
+            // Skapa användare
+            let userResult = await userModel.createUser(body);
+            // Finns användaren redan, uppdatera användaren
+            if (userResult.error) {
+                //Hitta id
+                let id = await userModel.findByEmailorNickname({ email: formData.email, nickname: formData.nickname });
+                body._id = id._id;
+                //Uppdatera användaren om den inte har bokat plats på aktiva lanet
+                if (id.event === active.eventName) {
+                    alert("Du har redan bokat en plats på detta lan.")
+                    return;
+                } else {
+                    let status = await userModel.updateUser(body);
+                    console.log(status)
+                    console.log(body)
+                    if (status.status === 200) {
+                        userSuccess = true;
+                    }
+                }
+            } else {
+                userSuccess = true;
+            }
+
+
+            // Om användaren fått en plats, boka platsen
+
             let res;
             if (seat) {
-                userData.seat = seat;
                 res = await eventModel.bookSeat({ seat, nickname: formData.nickname });
             }
             else if (visitor) {
-                userData.visitor = visitor;
                 res = await eventModel.bookVisitor({ nickname: formData.nickname });
             }
-            console.log(res)
-
-            if (res === 200) {
-                await userModel.createUser(body);
-            } else {
+            if (res !== 200) {
+                // Om platsen redan är bokad, visa felmeddelande
                 alert("Platsen är redan bokad.");
-                setLoading(false);
                 return;
             }
-            // navigate('/confirmation');
+
             navigate('/confirmation', { state: { userData } });
         } else {
             // Om något inte stämmer, visa felmeddelande  
             alert("Kontrollera personuppgifterna och försök igen.");
         }
-        console.log(formData);
     };
 
     function openTerms() {
@@ -411,73 +433,6 @@ const Event = () => {
                                 <button type="button" onClick={nextStep}>Nästa</button>
                             </div>
                     }
-                    {/* <div className="left">
-                        <div>
-                            <label>Förnamn:</label>
-                            <input name="name" type="text" value={firstname} onChange={e => setFirstname(e.target.value)} placeholder="Skriv ditt förnamn" required />
-                        </div>
-                        <div>
-                            <label>Efternamn:</label>
-                            <input name="lastname" type="text" value={lastname} onChange={e => setLastname(e.target.value)} placeholder="Skriv ditt efternamn" required />
-                        </div>
-                        <div>
-                            <label>E-post:</label>
-                            <input name="email" type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Skriv din e-post" required />
-                        </div>
-                        <div>
-                            <label>Telefon:</label>
-                            <input name="phone" type="phone" value={phone} onChange={e => setPhone(e.target.value)} placeholder="Skriv ditt telefonnummer" required />
-                        </div>
-                        <div>
-                            <label>Adress:</label>
-                            <input name="street-address" type="address" value={address} onChange={e => setAddress(e.target.value)} placeholder="Skriv din adress" required />
-                        </div>
-                    </div>
-                    <div className="right">
-                        <div>
-                            <label>Postnummer:</label>
-                            <input name="postal-code" type="postal-code" value={zip} onChange={e => setZip(e.target.value)} placeholder="Skriv ditt postnummer" required />
-                        </div>
-                        <div>
-                            <label>Stad:</label>
-                            <input name="city" type="city" value={city} onChange={e => setCity(e.target.value)} placeholder="Skriv din stad" required />
-                        </div>
-                        <div>
-                            <label>Nickname:</label>
-                            <input type="text" value={nickname} onChange={e => setNickname(e.target.value)} placeholder="Skriv ditt smeknamn" required />
-                        </div>
-                        <div>
-                            <label>Personnummer:</label>
-                            <input name="name" type="ssn" onChange={e => ssnHandler(e)} placeholder="ÅÅÅÅMMDDXXXX" required="required" />
-                        </div>
-
-                        {underAge ?
-                            <>
-                                <div className="info">
-                                    <p>Om du är under 18 måste du ha föräldrarnas tillåtelse och ange dess kontaktuppgifter:</p>
-                                </div>
-                                <div>
-                                    <label>Förälders namn:</label>
-                                    <input name="name" type="text" value={parentName} onChange={e => setParentName(e.target.value)} placeholder="Skriv förlälderns namn" required />
-                                </div>
-                                <div>
-                                    <label>Förälders telefonnummer:</label>
-                                    <input name="phone" type="phone" value={parentPhone} onChange={e => setParentPhone(e.target.value)} placeholder="Skriv förälderns telefonnr" required />
-                                </div>
-                                <div>
-                                    <label for="under-age">Jag har förälderns tillåtelse att boka platsen.</label>
-                                    <input type="checkbox" id="under-age" required />
-                                </div>
-                            </>
-                            : ""}
-                        <div>
-                            <label for="terms">Jag godkänner <a href="/terms" target="_blank">villkoren</a>.</label>
-                            <input type="checkbox" id="terms" name="terms" required />
-                        </div>
-                        <div>
-                            <input className="submit" type="submit" value="BOKA" />
-                        </div>
-                    </div> */}
                 </form >
             </div >
         </ >

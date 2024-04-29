@@ -10,7 +10,7 @@ const Events = () => {
     useEffect(() => {
         const fetchEvents = async () => {
             let res = await eventModel.getEvents();
-            console.log(res);
+            // console.log(res);
             setEvents(res);
         };
         fetchEvents();
