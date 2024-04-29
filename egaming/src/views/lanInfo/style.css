@@ -1,0 +1,118 @@
+.lan-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 500px;
+    margin: auto;
+    padding: 4em;
+    border-bottom: 1px solid #a0a0a0;
+}
+
+.info-data {
+    padding-bottom: 1em;
+}
+
+.lan-info p {
+    font-size: 1.2em;
+}
+
+.lan-info button {
+    margin-top: 1em;
+    background-color: rgb(52, 80, 163);
+    color: black;
+    width: 250px;
+    padding: 1em;
+    border: none;
+    box-shadow: 1px 0px 4px 4px #2d2d8b;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+.page-header {
+    font-size: 3.5em;
+    font-weight: 800;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0;
+}
+
+.eventplan {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 800px;
+    margin: 2em auto;
+}
+
+.eventplan p {
+    font-size: 1.2em;
+    text-align: center;
+    width: 400px;
+}
+
+.eventplan .content {
+    padding: 2em;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+}
+
+.content img {
+    width: 50%;
+}
+
+.content .schema td {
+    font-weight: normal;
+    font-size: 1em;
+    -webkit-box-shadow: 0 2px 2px -2px #0E1119;
+    -moz-box-shadow: 0 2px 2px -2px #0E1119;
+    box-shadow: 0 2px 2px -2px #0E1119;
+}
+
+.content table {
+    text-align: left;
+    overflow: hidden;
+    margin: 0 auto;
+    display: table;
+}
+
+.content td,
+.content th {
+    padding-bottom: 2%;
+    padding-top: 2%;
+    padding-left: 2%;
+}
+
+/* Background-color of the odd rows */
+.content tr:nth-child(odd) {
+    background-color: #323C50;
+}
+
+/* Background-color of the even rows */
+.content tr:nth-child(even) {
+    background-color: #2C3446;
+}
+
+.content th {
+    background-color: #1F2739;
+}
+
+.content td:first-child {
+    color: #FB667A;
+}
+
+@media (max-width: 800px) {
+
+    .content td:nth-child(4),
+    .content th:nth-child(4) {
+        display: none;
+    }
+}

@@ -1,0 +1,115 @@
+.scroll-list {
+    /* font-family: 'anton'; */
+    display: flex;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    /* width: 100%; */
+    gap: 1em;
+    width: auto;
+    height: 36vh;
+    cursor: grab;
+    margin: 0;
+    padding: 0;
+}
+
+.scroll-list h1 {
+    font-family: 'anton';
+}
+
+.scroll-list-item:hover {
+    cursor: pointer;
+}
+
+.scroll-list::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #2e2e2e;
+    height: 2px;
+
+}
+
+.scroll-list::-webkit-scrollbar {
+    height: 5px;
+    width: 10px;
+    background-color: #F5F5F5;
+}
+
+.scroll-list::-webkit-scrollbar-thumb {
+    background-color: #f1f1f1;
+    border: 1px solid #a0a0a0;
+    border-radius: 1em;
+}
+
+.event-list>h1 {
+    color: #a0a0a0;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0.5em;
+}
+
+
+
+.scroll-list-item>h1 {
+    width: 100%;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #fff;
+    text-align: center;
+}
+
+.scroll-list-item>p {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #fff;
+}
+
+.scroll-list-item {
+    background-color: rgb(28, 28, 28);
+    margin: 0;
+    margin-left: 2em;
+    width: 400px;
+    height: 75%;
+    min-width: 300px;
+    padding: 1em 3em;
+}
+
+.inactive {
+    filter: blur(2px);
+}
+
+.desc {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding-bottom: 1em;
+}
+
+.desc p {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.desc h3 {
+    padding: 0;
+    margin: 0;
+}
+
+.scroll-list-item:hover {
+    background-color: rgb(38, 38, 38);
+    transition: 0.3s;
+}
+
+.time {
+    font-size: 0.8em;
+    font-weight: 500;
+    margin-bottom: 0.5em;
+}
+
+@media screen and (max-width: 768px) {
+    .scroll-list-item {
+        margin-left: 0.5em;
+    }
+}

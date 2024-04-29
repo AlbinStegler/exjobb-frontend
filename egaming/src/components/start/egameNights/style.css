@@ -78,6 +78,10 @@ button {
 }
 
 @media screen and (max-width: 1070px) {
+    .egame-nights h1 {
+        font-size: 2em;
+    }
+
     .gamenight-container-two-col:nth-child(odd) {
         flex-direction: column-reverse;
     }

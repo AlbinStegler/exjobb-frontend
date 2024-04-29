@@ -17,6 +17,10 @@
     width: 50%;
 }
 
+.discord-info-container p {
+    margin-top: 2em;
+}
+
 @media screen and (max-width: 768px) {
     .discord-info-container {
         width: 80%;

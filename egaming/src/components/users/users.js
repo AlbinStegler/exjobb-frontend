@@ -9,8 +9,10 @@ const Users = () => {
 
     async function fetchUsers() {
         let activeEvent = await eventModel.getActiveEvent();
-        let res = await userModel.getUsersByEvent(activeEvent.eventName);
-        setUsers(res);
+        if (activeEvent) {
+            let res = await userModel.getUsersByEvent(activeEvent.eventName);
+            setUsers(res);
+        }
     }
 
 

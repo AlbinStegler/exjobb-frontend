@@ -11,10 +11,12 @@ import Start from './views/start/start';
 import Book from './views/userSeat/userSeat';
 import Footer from './components/footer/footer';
 import Confirmation from './views/confirmation/confirmation';
+import EventView from './components/eventview/eventview';
 
 import reportWebVitals from './reportWebVitals';
 import AdminStart from './views/admin-start/adminStart';
-
+import LanInfo from './views/lanInfo/lanInfo';
+import LanTerms from './views/lan-terms/lanTerms';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -31,6 +33,9 @@ root.render(
           <Route path="/admin" element={<AdminStart />} />
           <Route path="/book" element={<Book />}></Route>
           <Route path="/confirmation" element={<Confirmation />}></Route>
+          <Route path="/events" element={<EventView />} />
+          <Route path="/lanInfo/" element={<LanInfo />} />
+          <Route path="/lan-terms" element={<LanTerms />} />
         </Routes>
       </main>
       <footer>

@@ -83,6 +83,23 @@ const eventModel = {
             return error;
         }
     },
+    bookVisitor: async function bookVisitor(data) {
+        try {
+            const result = await fetch(`${url}/event/visitor`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'apiKey': apiKey,
+                },
+                body: JSON.stringify(data),
+            });
+
+            return await result.status;
+        } catch (error) {
+            console.error('Error booking visitor:', error);
+            return error;
+        }
+    },
     deleteEvent: async function deleteEvent(id) {
         try {
             const result = await fetch(`${url}/event/${id}`, {

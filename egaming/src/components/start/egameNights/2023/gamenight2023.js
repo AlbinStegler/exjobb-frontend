@@ -10,7 +10,7 @@ const Gamenight2023 = () => {
                 <p>Tack alla som deltar på våra event. Alla arrangörer, gäster och främst alla ni deltagare! Vi kommer hålla i fler event, missa inte det genom att bli medlem!</p>
             </div>
             <div className="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/lK-4mDHi9hU?si=Ykb_iJOIiboJktku" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/lK-4mDHi9hU?si=Ykb_iJOIiboJktku" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
             </div>
         </div>
     );

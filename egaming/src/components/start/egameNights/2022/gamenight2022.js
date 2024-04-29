@@ -7,7 +7,7 @@ const Gamenight2022 = () => {
     return (
         <div className='gamenight-container-two-col'>
             <div className="video-wrapper">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/OMkml8a2rWE?si=TSgFIgIJKTpUmeL7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/OMkml8a2rWE?si=TSgFIgIJKTpUmeL7" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
             </div>
             <div className="text">
                 <h1>2022</h1>
