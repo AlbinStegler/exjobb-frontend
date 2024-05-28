@@ -5,8 +5,8 @@ import { useLocation, useNavigate } from 'react-router-dom';
 // import sverokModel from "../../models/sverokModel";
 import eventModel from "../../models/eventModel";
 import userModel from "../../models/userModel";
-import Lottie from 'lottie-react';
-import lLoading from '../../lotties/loading.json';
+// import Lottie from 'lottie-react';
+// import lLoading from '../../lotties/loading.json';
 
 const Event = () => {
     const location = useLocation();
@@ -19,7 +19,6 @@ const Event = () => {
     const [parentPhone, setParentPhone] = useState("");
 
     const [underAge, setUnderAge] = useState(false);
-    const [loading, setLoading] = useState(false);
     const [currentStep, setCurrentStep] = useState(0);
 
     useEffect(() => {
@@ -296,7 +295,7 @@ const Event = () => {
             // Om användaren fått en plats, boka platsen
 
             let res;
-            if (seat) {
+            if (seat && userSuccess) {
                 res = await eventModel.bookSeat({ seat, nickname: formData.nickname });
             }
             else if (visitor) {
@@ -321,10 +320,10 @@ const Event = () => {
 
     return (
         <>
-            {loading ? <div className="loading"><Lottie animationData={lLoading}
+            {/* {loading ? <div className="loading"><Lottie animationData={lLoading}
                 loop
                 autoPlay
-                style={{ width: "400px", height: "400px" }} /></div> : ""}
+                style={{ width: "400px", height: "400px" }} /></div> : ""} */}
             <Nav />
             <div className="progressbar">
                 <div className={currentStep >= 0 ? "step current-step" : "step"}>

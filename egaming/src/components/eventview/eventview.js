@@ -18,11 +18,6 @@ const EventView = () => {
         }
     }
 
-    const updateEvents = async () => {
-        let res = await eventModel.getEvents();
-        setEvents(res);
-        setSeats(calculateSeatsLeft(res));
-    }
 
     function calculateSeatsLeft(events) {
         let spots = [];
@@ -46,6 +41,11 @@ const EventView = () => {
     }
 
     useEffect(() => {
+        const updateEvents = async () => {
+            let res = await eventModel.getEvents();
+            setEvents(res);
+            setSeats(calculateSeatsLeft(res));
+        }
         updateEvents();
     }, []);
     return (

@@ -6,13 +6,14 @@
 }
 
 .etown-logo {
-    height: 250px;
+    height: 15vh;
 }
 
 #submit-form {
-    height: 665px;
+    height: 600px;
     margin-top: 0;
     color: white;
+    padding: 0;
 }
 
 input:-webkit-autofill:focus {
@@ -28,7 +29,7 @@ input:-webkit-autofill:focus {
     width: 100%;
     gap: 1em;
     background-color: rgb(255, 255, 255);
-    height: 20vh;
+    height: auto;
 }
 
 .event-sponsors img {
@@ -39,18 +40,54 @@ input:-webkit-autofill:focus {
     height: auto;
 }
 
-.xtrfy {
-    filter: invert(1);
-}
-
 .form-container {
     height: auto;
 }
 
 .three-col {
-    height: 7vh;
+    margin: 0.5em;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     width: 100%;
+    flex-wrap: wrap;
+}
+
+a:hover {
+    filter: brightness(0.8);
+}
+
+@media screen and (max-height : 768px) {
+    .etown-logo {
+        display: none;
+    }
+
+
+
+    #submit-form {
+        margin-top: 1em;
+    }
+}
+
+@media screen and (max-height : 900px) {
+    .three-col img {
+        display: block;
+        max-width: 150px;
+        width: auto;
+        height: auto;
+    }
+}
+
+.next a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    background-color: rgb(34, 136, 150);
+    border-radius: 5px;
+    height: 50px;
+}
+
+.next a:hover {
+    filter: brightness(0.8);
 }

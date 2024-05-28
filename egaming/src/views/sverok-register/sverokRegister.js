@@ -48,29 +48,41 @@ const SverokRegister = () => {
         parentPhone: "",
     });
 
-    async function sendMember() {
-        let date = new Date();
-        date = date.toLocaleString("en-SE", { timeZone: "Europe/Stockholm" }).slice(0, 10);
-        const apiStructure = {
-            "member": {
-                "firstname": formData.fName,
-                "lastname": formData.lName,
-                "renewed": date,
-                "email": formData.email,
-                "socialsecuritynumber": formData.ssn,
-                "phone1": formData.phone,
-                "street": formData.address,
-                "zip_code": formData.zip,
-                "city": formData.city,
-                "member_nick": formData.nickname
+    async function sendMember(e) {
+        e.preventDefault();
+        let valid = document.getElementById("submit-form").checkValidity();
+        if (valid) {
+            let date = new Date();
+            date = date.toLocaleString("en-SE", { timeZone: "Europe/Stockholm" }).slice(0, 10);
+            const apiStructure = {
+                "member": {
+                    "firstname": formData.fName,
+                    "lastname": formData.lName,
+                    "renewed": date,
+                    "email": formData.email,
+                    "socialsecuritynumber": formData.ssn,
+                    "phone1": formData.phone,
+                    "street": formData.address,
+                    "zip_code": formData.zip,
+                    "city": formData.city,
+                    "member_nick": formData.nickname
+                }
+            };
+            console.log(apiStructure);
+            let res = await sverokModel.createMember(apiStructure);
+            if (res.request_result === "success") {
+                console.log("Success");
+                setCurrentStep(3);
+            } else {
+                alert("Något gick fel, testa fyll i igen");
+                setCurrentStep(0);
+                let temp = formData;
+                Object.keys(temp).forEach(key => temp[key] = "");
+                setFormData(temp);
+                console.log("Error");
             }
-        };
-        console.log(apiStructure);
-        let res = await sverokModel.createMember(apiStructure);
-        if (res.request_result === "success") {
-            console.log("Success");
         } else {
-            console.log("Error");
+            alert("Fyll i alla fält");
         }
     }
 
@@ -119,8 +131,8 @@ const SverokRegister = () => {
         window.open("/lan-terms", "_blank");
     }
     return (<div className="form-container center" >
-        <img className="etown-logo" src={process.env.PUBLIC_URL + '/images/Banner.png'} alt="etown" />
-        <form id="submit-form" onSubmit={(e) => e.preventDefault()} className="register-form animate__animated">
+        <a href="/"><img className="etown-logo" src={process.env.PUBLIC_URL + '/images/Banner.png'} alt="etown" /></a>
+        {currentStep < 3 ? <form id="submit-form" onSubmit={(e) => e.preventDefault()} className="register-form animate__animated">
             {currentStep < 3 ? steps[currentStep].fields.map((field, index) => (
                 <div key={field}>
                     <label onClick={field === "Jag godkänner villkoren" ? openTerms : null}
@@ -134,16 +146,23 @@ const SverokRegister = () => {
                         required />
                 </div>
             )) : null}
-            {currentStep > 0 ? <div><button className="next" onClick={prevStep}>Tillbaka</button></div> : null}
+            {currentStep > 0 ? <div className="back"><button onClick={prevStep}>Tillbaka</button></div> : null}
             {currentStep === 2 ?
-                <div>
-                    <button className="next" onClick={(e) => sendMember(e)}>BLI MEDLEM</button>
+                <div className="next">
+                    <button onClick={(e) => sendMember(e)}>BLI MEDLEM</button>
                 </div>
                 :
-                <div>
-                    <button className="next" onClick={(e) => nextStep(e)}>Nästa</button>
+                <div className="next">
+                    <button onClick={(e) => nextStep(e)}>Nästa</button>
                 </div>}
-        </form>
+        </form> : null}
+        {currentStep === 3 ?
+            <div id="submit-form" className="register-form success">
+                <div><h2>Välkommen till E-town Gaming!</h2></div>
+                <p>{formData.nickname}</p>
+                <div className="next"><a href="/sverok-register">Tillbaka</a></div></div>
+            : null
+        }
         <div className="event-sponsors">
             <div className="three-col">
                 <img src={process.env.PUBLIC_URL + '/images/sparbanken.jpg'} alt="sparbanken" />

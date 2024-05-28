@@ -9,7 +9,7 @@ const Seat = ({ seatInfo, onSeatClick, isBooked }) => {
     if (isBooked !== "free") {
         className = `seat booked`;
     }
-    const [nick, setNick] = useState("");
+    // const [nick, setNick] = useState("");
     const [showPopup, setShowPopup] = useState(false);
 
     const handleClosePopup = () => {

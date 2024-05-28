@@ -34,7 +34,7 @@ const LanInfo = () => {
                 <h1 className="page-header">2023</h1>
                 <p>Det här är det tidigare eventets schema och några av de turneringarna som hölls då</p>
                 <div className="content">
-                    <img src="./images/Planritning.png"></img>
+                    <img src="./images/Planritning.png" alt="Planritning 2023"></img>
                     <table className="schema">
                         <tr><th>Tid</th><th>Tournaments</th></tr>
                         <tr><td>15.00-16.00</td><td>Tekken</td></tr>
