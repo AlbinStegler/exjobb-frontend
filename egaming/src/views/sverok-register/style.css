@@ -21,19 +21,15 @@ input:-webkit-autofill:focus {
 }
 
 .event-sponsors {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
     margin-top: 30px;
     width: 100%;
     gap: 1em;
     background-color: rgb(255, 255, 255);
-    height: auto;
 }
 
 .event-sponsors img {
-    display: block;
+    display: flex;
+    flex-direction: row;
     max-width: 230px;
     max-height: 95px;
     width: auto;
@@ -44,39 +40,47 @@ input:-webkit-autofill:focus {
     height: auto;
 }
 
-.three-col {
+.spons-three-col {
     margin: 0.5em;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
-    width: 100%;
-    flex-wrap: wrap;
+    align-items: center;
+    gap: 1em;
+    justify-content: center;
 }
 
 a:hover {
     filter: brightness(0.8);
 }
 
-@media screen and (max-height : 768px) {
+.spons-three-col img {
+    filter: grayscale(100%);
+}
+
+@media screen and (max-width : 768px) {
     .etown-logo {
         display: none;
     }
 
-
-
     #submit-form {
         margin-top: 1em;
     }
-}
 
-@media screen and (max-height : 900px) {
-    .three-col img {
-        display: block;
-        max-width: 150px;
-        width: auto;
+    .spons-three-col {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .event-sponsors img {
+        max-width: 230px;
+        max-height: 95px;
+        flex-wrap: wrap;
+        width: 23%;
         height: auto;
     }
 }
+
 
 .next a {
     display: flex;

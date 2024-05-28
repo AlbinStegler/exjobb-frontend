@@ -165,14 +165,14 @@ const SverokRegister = () => {
             : null
         }
         <div className="event-sponsors">
-            <div className="three-col">
+            <div className="spons-three-col">
                 <img src={process.env.PUBLIC_URL + '/images/sparbanken.jpg'} alt="sparbanken" />
                 <img src={process.env.PUBLIC_URL + '/images/lfsodermanland.jpg'} alt="Länsförsäkrningar Södermanland" />
                 <img src={process.env.PUBLIC_URL + '/images/cherryxtrfy.png'} alt="xtrfy" />
             </div>
-            <div className="three-col">
-                <img src={process.env.PUBLIC_URL + '/images/stiga.png'} alt="sverok" />
-                <img src={process.env.PUBLIC_URL + '/images/dreamhacklogo.png'} alt="sverok" />
+            <div className="spons-three-col">
+                <img src={process.env.PUBLIC_URL + '/images/stiga.jpg'} alt="sverok" />
+                <img src={process.env.PUBLIC_URL + '/images/dreamhack-logo.png'} alt="sverok" />
 
             </div>
         </div>
