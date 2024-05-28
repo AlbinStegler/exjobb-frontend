@@ -146,7 +146,6 @@ const SverokRegister = () => {
                         required />
                 </div>
             )) : null}
-            {currentStep > 0 ? <div className="back"><button onClick={prevStep}>Tillbaka</button></div> : null}
             {currentStep === 2 ?
                 <div className="next">
                     <button onClick={(e) => sendMember(e)}>BLI MEDLEM</button>
@@ -154,7 +153,9 @@ const SverokRegister = () => {
                 :
                 <div className="next">
                     <button onClick={(e) => nextStep(e)}>Nästa</button>
-                </div>}
+                </div>
+            }
+            {currentStep > 0 ? <div className="back"><button onClick={prevStep}>Tillbaka</button></div> : null}
         </form> : null}
         {currentStep === 3 ?
             <div id="submit-form" className="register-form success">
