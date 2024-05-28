@@ -17,6 +17,7 @@ import reportWebVitals from './reportWebVitals';
 import AdminStart from './views/admin-start/adminStart';
 import LanInfo from './views/lanInfo/lanInfo';
 import LanTerms from './views/lan-terms/lanTerms';
+import SverokRegister from './views/sverok-register/sverokRegister';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -36,6 +37,7 @@ root.render(
           <Route path="/events" element={<EventView />} />
           <Route path="/lanInfo/" element={<LanInfo />} />
           <Route path="/lan-terms" element={<LanTerms />} />
+          <Route path="/sverok-register" element={<SverokRegister />} />
         </Routes>
       </main>
       <footer>

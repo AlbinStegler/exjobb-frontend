@@ -1,0 +1,56 @@
+.center {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+}
+
+.etown-logo {
+    height: 250px;
+}
+
+#submit-form {
+    height: 665px;
+    margin-top: 0;
+    color: white;
+}
+
+input:-webkit-autofill:focus {
+    color: white;
+}
+
+.event-sponsors {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 30px;
+    width: 100%;
+    gap: 1em;
+    background-color: rgb(255, 255, 255);
+    height: 20vh;
+}
+
+.event-sponsors img {
+    display: block;
+    max-width: 230px;
+    max-height: 95px;
+    width: auto;
+    height: auto;
+}
+
+.xtrfy {
+    filter: invert(1);
+}
+
+.form-container {
+    height: auto;
+}
+
+.three-col {
+    height: 7vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+}
