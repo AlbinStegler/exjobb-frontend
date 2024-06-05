@@ -57,7 +57,7 @@ const NewMemberView = () => {
                     <img src={process.env.PUBLIC_URL + '/images/cherryxtrfy.png'} alt="xtrfy" />
                 </div>
                 <div className="spons-three-col">
-                    <img src={process.env.PUBLIC_URL + '/images/stiga.jpg'} alt="sverok" />
+                    <img src={process.env.PUBLIC_URL + '/images/stiga-logo.png'} alt="sverok" />
                     <img src={process.env.PUBLIC_URL + '/images/dreamhack-logo.png'} alt="sverok" />
 
                 </div>
