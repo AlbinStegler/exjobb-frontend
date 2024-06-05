@@ -2,9 +2,12 @@ import React from "react";
 import './style.css'
 import { useState } from "react";
 import sverokModel from "../../models/sverokModel";
+import logModel from "../../models/logModel";
 
 const SverokRegister = () => {
-    const [currentStep, setCurrentStep] = useState(0);
+    const [currentStep, setCurrentStep] = useState(2);
+
+    const [shortForm, setShortForm] = useState(true);
 
     const steps = [
         {
@@ -34,6 +37,16 @@ const SverokRegister = () => {
             stepName: 'Bekräftelse'
         }
     ]
+
+    const shortSteps = {
+        fields: ['Personnummer', 'Mail', 'Telefon', 'Smeknamn', 'Jag godkänner villkoren'],
+        type: ['number', 'email', 'phone', 'nickname', 'checkbox'],
+        name: ['ssn', 'email', 'phone', 'nickname', 'terms'],
+        label: 'Step 1',
+        stepName: 'Personuppgifter'
+    }
+
+
     const [formData, setFormData] = useState({
         fName: "",
         lName: "",
@@ -48,12 +61,17 @@ const SverokRegister = () => {
         parentPhone: "",
     });
 
+    function createLog() {
+        let log = { "nickname": formData.nickname }
+        logModel.createLog(log);
+    }
+
     async function sendMember(e) {
         e.preventDefault();
         let valid = document.getElementById("submit-form").checkValidity();
-        if (valid) {
-            let date = new Date();
-            date = date.toLocaleString("en-SE", { timeZone: "Europe/Stockholm" }).slice(0, 10);
+        let date = new Date();
+        date = date.toLocaleString("en-SE", { timeZone: "Europe/Stockholm" }).slice(0, 10);
+        if (valid && !shortForm) {
             const apiStructure = {
                 "member": {
                     "firstname": formData.fName,
@@ -72,10 +90,38 @@ const SverokRegister = () => {
             let res = await sverokModel.createMember(apiStructure);
             if (res.request_result === "success") {
                 console.log("Success");
+                createLog();
                 setCurrentStep(3);
             } else {
                 alert("Något gick fel, testa fyll i igen");
-                setCurrentStep(0);
+                setCurrentStep(2);
+                let temp = formData;
+                Object.keys(temp).forEach(key => temp[key] = "");
+                setFormData(temp);
+                console.log("Error");
+            }
+        } else if (valid && shortForm) {
+            const apiStructure = {
+                "member": {
+                    "renewed": date,
+                    "email": formData.email,
+                    "socialsecuritynumber": formData.ssn,
+                    "phone1": formData.phone,
+                    "member_nick": formData.nickname
+                }
+            };
+            console.log("Short form");
+            console.log(apiStructure);
+            let res = await sverokModel.createMemberSPAR(apiStructure);
+
+            if (res.request_result === "success") {
+                console.log("Success");
+                createLog();
+                setCurrentStep(3);
+
+            } else {
+                alert("Något gick fel, testa fyll i igen");
+                setCurrentStep(2);
                 let temp = formData;
                 Object.keys(temp).forEach(key => temp[key] = "");
                 setFormData(temp);
@@ -130,33 +176,73 @@ const SverokRegister = () => {
     function openTerms() {
         window.open("/lan-terms", "_blank");
     }
+
+    const handleShortToggle = () => {
+        if (shortForm) {
+            setCurrentStep(0);
+        } else {
+            setCurrentStep(2);
+        }
+        setShortForm(!shortForm);
+    }
+
     return (<div className="form-container center" >
         <a href="/"><img className="etown-logo" src={process.env.PUBLIC_URL + '/images/Banner.png'} alt="etown" /></a>
-        {currentStep < 3 ? <form id="submit-form" onSubmit={(e) => e.preventDefault()} className="register-form animate__animated">
-            {currentStep < 3 ? steps[currentStep].fields.map((field, index) => (
-                <div key={field}>
-                    <label onClick={field === "Jag godkänner villkoren" ? openTerms : null}
-                        className={field === "Jag godkänner villkoren" ? "clickable-text" : null}>{field}</label>
-                    <input name={steps[currentStep].name[index]}
-                        type={steps[currentStep].type[index]}
-                        value={formData[steps[currentStep].name[index]]}
-                        className={field}
-                        onChange={(e) => setFormData({ ...formData, [steps[currentStep].name[index]]: e.target.value })}
-                        placeholder={field}
-                        required />
-                </div>
-            )) : null}
-            {currentStep === 2 ?
-                <div className="next">
-                    <button onClick={(e) => sendMember(e)}>BLI MEDLEM</button>
-                </div>
-                :
-                <div className="next">
-                    <button onClick={(e) => nextStep(e)}>Nästa</button>
-                </div>
-            }
-            {currentStep > 0 ? <div className="back"><button onClick={prevStep}>Tillbaka</button></div> : null}
-        </form> : null}
+        {shortForm ? <p>Automatisk hämtning av personuppgifter</p> : <p>Manuell inmatning</p>}
+        <div class="toggle-switch">
+            <label class="switch">
+                <input type="checkbox" onClick={handleShortToggle} />
+                <span class="slider round"></span>
+            </label>
+        </div>
+
+        {
+            currentStep < 3 ? <form id="submit-form" onSubmit={(e) => e.preventDefault()} className="register-form animate__animated">
+                {
+                    currentStep < 3 && !shortForm ? steps[currentStep].fields.map((field, index) => (
+                        <div key={field}>
+                            <label onClick={field === "Jag godkänner villkoren" ? openTerms : null}
+                                className={field === "Jag godkänner villkoren" ? "clickable-text" : null}>{field}</label>
+                            <input name={steps[currentStep].name[index]}
+                                type={steps[currentStep].type[index]}
+                                value={formData[steps[currentStep].name[index]]}
+                                className={field}
+                                onChange={(e) => setFormData({ ...formData, [steps[currentStep].name[index]]: e.target.value })}
+                                placeholder={field}
+                                required />
+                        </div>
+                    )) :
+
+                        shortSteps.fields.map((field, index) => (
+                            <div key={field}>
+                                <label onClick={field === "Jag godkänner villkoren" ? openTerms : null}
+                                    className={field === "Jag godkänner villkoren" ? "clickable-text" : null}>{field}</label>
+                                <input name={shortSteps.name[index]}
+                                    type={shortSteps.type[index]}
+                                    value={formData[shortSteps.name[index]]}
+                                    className={field}
+                                    onChange={(e) => setFormData({ ...formData, [shortSteps.name[index]]: e.target.value })}
+                                    placeholder={field === "Personnummer" ? "ÅÅÅÅMMDDXXXX" : field}
+                                    required />
+                            </div>
+                        )
+                        )
+                }
+                {
+                    currentStep === 2 ?
+                        <div className="next">
+                            <button onClick={(e) => sendMember(e)}>BLI MEDLEM</button>
+                        </div>
+                        :
+                        <div className="next">
+                            <button onClick={(e) => nextStep(e)}>Nästa</button>
+                        </div>
+                }
+                {
+                    currentStep > 0 && !shortForm ? <div className="back"><button onClick={prevStep}>Tillbaka</button></div> : null
+                }
+            </form> : null
+        }
         {currentStep === 3 ?
             <div id="submit-form" className="register-form success">
                 <div><h2>Välkommen till E-town Gaming!</h2></div>
