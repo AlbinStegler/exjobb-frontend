@@ -38,14 +38,15 @@ const StartPage = () => {
             <EgameNights /> */}
             <ThreeImages
                 first={'blue_etown_logo.png'}
-                firstUrl={'/sverok-register'}
+                // firstUrl={'/sverok-register'}
+                firstUrl={'https://ebas.sverok.se/blimedlem/etowngaming'}
                 firstText={imgText.first}
                 firstH1={imgText.firstH1}
                 second={'sverok-purple.png'}
                 secondUrl={'https://malardalen.sverok.se/omsverokmalardalen/'}
                 secondText={imgText.second}
                 secondH1={imgText.secondH1}
-                third={'igexample.jpeg'}
+                third={'igexample.png'}
                 thirdUrl={'https://www.instagram.com/etowngaming/'}
                 thirdText={imgText.third}
                 thirdH1={imgText.thirdH1}
