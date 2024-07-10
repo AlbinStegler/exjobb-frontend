@@ -5,10 +5,10 @@ import './style.css';
 import Info1 from '../../components/start/info-1/info-1';
 import Member from '../../components/member/member';
 import Discord from '../../components/start/discordInfo/discord';
-import EgameNights from '../../components/start/egameNights/egameNights';
 import EventList from '../../components/start/eventList/eventList';
 import ThreeImages from '../../components/start/threeImages/ThreeImages';
-import EtownAcademy from '../../components/start/etownacademy/EtownAcademy';
+// import EgameNights from '../../components/start/egameNights/egameNights';
+// import EtownAcademy from '../../components/start/etownacademy/EtownAcademy';
 
 const StartPage = () => {
 
@@ -41,11 +41,11 @@ const StartPage = () => {
                 firstUrl={'/sverok-register'}
                 firstText={imgText.first}
                 firstH1={imgText.firstH1}
-                second={'sverok.webp'}
+                second={'sverok-purple.png'}
                 secondUrl={'https://malardalen.sverok.se/omsverokmalardalen/'}
                 secondText={imgText.second}
                 secondH1={imgText.secondH1}
-                third={'igexample.webp'}
+                third={'igexample.jpeg'}
                 thirdUrl={'https://www.instagram.com/etowngaming/'}
                 thirdText={imgText.third}
                 thirdH1={imgText.thirdH1}
