@@ -20,66 +20,35 @@ input:-webkit-autofill:focus {
     color: white;
 }
 
-.event-sponsors {
-    margin-top: 30px;
-    width: 100%;
-    gap: 1em;
-    background-color: rgb(255, 255, 255);
-}
 
-.event-sponsors img {
-    display: flex;
-    flex-direction: row;
-    max-width: 230px;
-    max-height: 95px;
-    width: auto;
-    height: auto;
-}
 
 .form-container {
     height: auto;
 }
 
-.spons-three-col {
-    margin: 0.5em;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 1em;
-    justify-content: center;
-}
+
 
 a:hover {
     filter: brightness(0.8);
 }
 
-.spons-three-col img {
-    filter: grayscale(100%);
+
+
+.etown-logo {
+    display: none;
 }
 
-@media screen and (max-width : 768px) {
-    .etown-logo {
-        display: none;
-    }
-
-    #submit-form {
-        margin-top: 1em;
-    }
-
-    .spons-three-col {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-    }
-
-    .event-sponsors img {
-        max-width: 230px;
-        max-height: 95px;
-        flex-wrap: wrap;
-        width: 23%;
-        height: auto;
-    }
+#submit-form {
+    margin-top: 1em;
 }
+
+.spons-three-col {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
 
 
 .next a {

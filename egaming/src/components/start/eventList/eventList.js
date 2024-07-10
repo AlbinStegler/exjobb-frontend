@@ -58,73 +58,75 @@ const EventList = () => {
 
     return (
         <div className='event-list'>
-            <h1>Kommande Event</h1>
-            <div className="scroll-list"
-                onMouseDown={handleMouseDown}
-                onMouseMove={handleMouseMove}
-                onMouseUp={handleMouseUp}>
-                {events.map((event) => {
-                    return (
-                        <div className={event.active ? "scroll-list-item list-active" : "scroll-list-item inactive"}
-                            key={event.id}
-                            onClick={event.active ? () => handleMouseClick(event.eventType) : null}>
-                            <h1>{event.eventName}</h1>
-                            <div className='two-col time'><p>Tid: {event.eventTime}</p><p>Datum: {event.eventDate.slice(0, 10)}</p></div>
-                            <div className='desc'>
-                                <h3>Plats: </h3>
-                                <p>{event.eventLocation}</p>
+            {events.length ? <>
+                <h1>Kommande Event</h1>
+                <div className="scroll-list"
+                    onMouseDown={handleMouseDown}
+                    onMouseMove={handleMouseMove}
+                    onMouseUp={handleMouseUp}>
+                    {events.map((event) => {
+                        return (
+                            <div className={event.active ? "scroll-list-item list-active" : "scroll-list-item inactive"}
+                                key={event.id}
+                                onClick={event.active ? () => handleMouseClick(event.eventType) : null}>
+                                <h1>{event.eventName}</h1>
+                                <div className='two-col time'><p>Tid: {event.eventTime}</p><p>Datum: {event.eventDate.slice(0, 10)}</p></div>
+                                <div className='desc'>
+                                    <h3>Plats: </h3>
+                                    <p>{event.eventLocation}</p>
+                                </div>
+                                <div className='desc'>
+                                    <h3>Beskrivning:</h3>
+                                    {event.eventDescription ? <p>{event.eventDescription}</p> : null}
+                                </div>
                             </div>
-                            <div className='desc'>
-                                <h3>Beskrivning:</h3>
-                                {event.eventDescription ? <p>{event.eventDescription}</p> : null}
-                            </div>
+                        );
+                    })}
+                    {/* Fake items for demonstration */}
+                    <div className="scroll-list-item inactive">
+                        <h1>EgameNight 2023</h1>
+                        <div className='two-col'><p>Tid:Kl 11</p><p>Datum: 2023-10-31</p></div>
+
+                        <div className='desc'>
+                            <h3>Plats: </h3>
+                            <p>Lokomotivet</p>
                         </div>
-                    );
-                })}
-                {/* Fake items for demonstration */}
-                <div className="scroll-list-item inactive">
-                    <h1>EgameNight 2023</h1>
-                    <div className='two-col'><p>Tid:Kl 11</p><p>Datum: 2023-10-31</p></div>
+                        <div className='desc'>
+                            <h3>Beskrivning:</h3>
+                            <p>Föreningens årliga lan i Lokomotivet</p>
+                        </div>
 
-                    <div className='desc'>
-                        <h3>Plats: </h3>
-                        <p>Lokomotivet</p>
                     </div>
-                    <div className='desc'>
-                        <h3>Beskrivning:</h3>
-                        <p>Föreningens årliga lan i Lokomotivet</p>
-                    </div>
+                    <div className="scroll-list-item inactive">
+                        <h1>EgameNight 2022</h1>
+                        <div className='two-col'><p>Tid:Kl 11</p><p>Datum: 2022-10-31</p></div>
 
+                        <div className='desc'>
+                            <h3>Plats: </h3>
+                            <p>Lokomotivet</p>
+                        </div>
+                        <div className='desc'>
+                            <h3>Beskrivning:</h3>
+                            <p>Föreningens årliga lan i Lokomotivet</p>
+                        </div>
+
+                    </div>
+                    <div className="scroll-list-item inactive">
+                        <h1>EgameNight 2020</h1>
+                        <div className='two-col'><p>Tid:Kl 11</p><p>Datum: 2020-10-31</p></div>
+
+                        <div className='desc'>
+                            <h3>Plats: </h3>
+                            <p>Lokomotivet</p>
+                        </div>
+                        <div className='desc'>
+                            <h3>Beskrivning:</h3>
+                            <p>Föreningens årliga lan i Lokomotivet</p>
+                        </div>
+
+                    </div>
                 </div>
-                <div className="scroll-list-item inactive">
-                    <h1>EgameNight 2022</h1>
-                    <div className='two-col'><p>Tid:Kl 11</p><p>Datum: 2022-10-31</p></div>
-
-                    <div className='desc'>
-                        <h3>Plats: </h3>
-                        <p>Lokomotivet</p>
-                    </div>
-                    <div className='desc'>
-                        <h3>Beskrivning:</h3>
-                        <p>Föreningens årliga lan i Lokomotivet</p>
-                    </div>
-
-                </div>
-                <div className="scroll-list-item inactive">
-                    <h1>EgameNight 2020</h1>
-                    <div className='two-col'><p>Tid:Kl 11</p><p>Datum: 2020-10-31</p></div>
-
-                    <div className='desc'>
-                        <h3>Plats: </h3>
-                        <p>Lokomotivet</p>
-                    </div>
-                    <div className='desc'>
-                        <h3>Beskrivning:</h3>
-                        <p>Föreningens årliga lan i Lokomotivet</p>
-                    </div>
-
-                </div>
-            </div>
+            </> : null}
         </div>
     );
 };

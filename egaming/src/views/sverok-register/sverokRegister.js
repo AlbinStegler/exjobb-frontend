@@ -65,12 +65,46 @@ const SverokRegister = () => {
         let log = { "nickname": formData.nickname }
         logModel.createLog(log);
     }
+    //Used to validate a ssn with a regex and a checksum
+    function validateSSN(ssn) {
+        ssn = ssn.replace(/\D/g, "");
+        let regex = /^(19|20)[0-9]{10}$/;
+        if (!regex.test(ssn)) {
+            console.log("Invalid ssn");
+            return false;
+        }
+
+        let num = ssn.slice(2, -1);
+        let len = num.length;
+        let sum = 0;
+
+        for (let i = 0; i < len; i++) {
+            let digit = parseInt(num.charAt(i));
+
+            if (i % 2 === 0) {
+                digit *= 2;
+                if (digit > 9) {
+                    digit -= 9;
+                }
+            }
+
+            sum += digit;
+        }
+
+        let calculatedLastDigit = (10 - (sum % 10)) % 10;
+        let actualLastDigit = parseInt(ssn.charAt(ssn.length - 1));
+
+        return calculatedLastDigit === actualLastDigit;
+    }
 
     async function sendMember(e) {
         e.preventDefault();
         let valid = document.getElementById("submit-form").checkValidity();
         let date = new Date();
         date = date.toLocaleString("en-SE", { timeZone: "Europe/Stockholm" }).slice(0, 10);
+        if (validateSSN(formData.ssn) === false) {
+            return alert("Felaktigt personnummer");
+        }
         if (valid && !shortForm) {
             const apiStructure = {
                 "member": {
@@ -250,18 +284,7 @@ const SverokRegister = () => {
                 <div className="next"><a href="/sverok-register">Tillbaka</a></div></div>
             : null
         }
-        <div className="event-sponsors">
-            <div className="spons-three-col">
-                <img src={process.env.PUBLIC_URL + '/images/sparbanken.jpg'} alt="sparbanken" />
-                <img src={process.env.PUBLIC_URL + '/images/lfsodermanland.jpg'} alt="Länsförsäkrningar Södermanland" />
-                <img src={process.env.PUBLIC_URL + '/images/cherryxtrfy.png'} alt="xtrfy" />
-            </div>
-            <div className="spons-three-col">
-                <img src={process.env.PUBLIC_URL + '/images/stiga-logo.png'} alt="sverok" />
-                <img src={process.env.PUBLIC_URL + '/images/dreamhack-logo.png'} alt="sverok" />
 
-            </div>
-        </div>
     </div>);
 };
 
