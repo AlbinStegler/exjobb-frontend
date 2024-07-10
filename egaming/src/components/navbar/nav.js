@@ -21,9 +21,9 @@ const StartPage = () => {
                 <a id="/" href="/">START</a>
                 <a
                     className="member-button"
-                    href="https://ebas.sverok.se/blimedlem/etowngaming"
+                    href="/sverok-register"
                 >BLI MEDLEM</a>
-                <a id="/book" href="/book">LAN</a>
+                <a id="/events" href="/events">EVENT</a>
             </div>
             <div>
                 <a className="login" href="/login">login</a>

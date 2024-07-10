@@ -23,8 +23,7 @@ a:visited {
 }
 
 .active {
-    border-bottom: white 5px solid;
-    border-radius: 3px;
+    border-bottom: white 2px solid;
 }
 
 .nav-center {

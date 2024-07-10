@@ -100,6 +100,24 @@ const userModel = {
             console.error('Error updating user:', error);
             return error;
         }
+    },
+    findByEmailorNickname: async function findByEmailorNickname(data) {
+        const url = urlModule.getUrl();
+
+        try {
+            const result = await fetch(`${url}/users/EmailOrNickname`, {
+                method: 'POST',
+                headers: {
+                    'apiKey': apiKey,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+            return await result.json();
+        } catch (error) {
+            console.error('Error fetching user:', error);
+            return error;
+        }
     }
 };
 

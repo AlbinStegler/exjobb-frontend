@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import userModel from '../../../../models/userModel';
 import 'animate.css';
 import './style.css'
 
@@ -7,8 +6,10 @@ const Seat = ({ seatInfo, onSeatClick, isBooked }) => {
     const nr = seatInfo.nr;
     const row = seatInfo.row;
     let className = `seat ${isBooked}`;
-
-    const [nick, setNick] = useState("");
+    if (isBooked !== "free") {
+        className = `seat booked`;
+    }
+    // const [nick, setNick] = useState("");
     const [showPopup, setShowPopup] = useState(false);
 
     const handleClosePopup = () => {
@@ -16,7 +17,7 @@ const Seat = ({ seatInfo, onSeatClick, isBooked }) => {
     };
     async function clickHandler(e) {
 
-        if (isBooked === "booked") {
+        if (isBooked !== "free") {
             return;
         }
         onSeatClick(seatInfo);
@@ -43,13 +44,6 @@ const Seat = ({ seatInfo, onSeatClick, isBooked }) => {
 
     async function handleDoubleClick(e) {
         setShowPopup(true);
-        if (isBooked === "booked") {
-            const seat = { "row": row, "seat": nr.toString() }
-            let nickname = await userModel.getUserFromSeat(seat)
-            setNick(nickname.member.member_nick);
-            console.log(nickname.member.member_nick);
-        }
-
     }
 
     return (
@@ -57,7 +51,7 @@ const Seat = ({ seatInfo, onSeatClick, isBooked }) => {
             {showPopup && (
                 <div className="popup">
                     <h1>Plats {row}{nr} bokad för</h1>
-                    <h2>{nick}</h2>
+                    <h2>{isBooked}</h2>
                     <button onClick={handleClosePopup}>Close</button>
                 </div>
             )}

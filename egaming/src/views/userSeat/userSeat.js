@@ -20,7 +20,6 @@ const Book = () => {
     useEffect(() => {
         async function fetchData() {
             let res = await eventModel.getActiveEvent();
-            console.log(res);
             setEvents(res);
         }
         fetchData();
@@ -32,7 +31,6 @@ const Book = () => {
     };
 
     function confirmSeat() {
-        console.log('confirm seat');
         navigate('/event', { state: { seat: selected } });
     }
 

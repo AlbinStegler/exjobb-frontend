@@ -9,14 +9,16 @@ const Users = () => {
 
     async function fetchUsers() {
         let activeEvent = await eventModel.getActiveEvent();
-        let res = await userModel.getUsersByEvent(activeEvent.eventName);
-        setUsers(res);
+        if (activeEvent) {
+            let res = await userModel.getUsersByEvent(activeEvent.eventName);
+            setUsers(res);
+        }
     }
 
 
     useEffect(() => {
         fetchUsers();
-    }, []);
+    }, [users]);
 
     async function handleInOut(user) {
         if (user.checked_in) {
@@ -47,8 +49,9 @@ const Users = () => {
                 <p>{user.member.phone1}</p>
             </div>
             <div className='two-col'>
-                <p>Plats</p>
-                <p>{user.seat.row} {user.seat.seat}</p>
+                {user.seat ? <><p>Plats</p>
+                    <p>{user.seat.row} {user.seat.seat}</p></> : <p>BESÖKSBILJETT</p>}
+
             </div>
             <div className='two-col'>
                 <button onClick={() => removeUser(user)}>Ta bort</button>

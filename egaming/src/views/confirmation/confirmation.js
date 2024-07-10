@@ -20,7 +20,7 @@ const AdminStart = () => {
                     <p>Vi har skickat en bokningsbekräftelse till din e-post. {data.email}</p>
                     <h3>Bokningsinformation</h3>
                     <p>Event: {data.event}</p>
-                    <p>Plats: {data.seat.row}{data.seat.nr}</p>
+                    {data.seat ? <p>Plats: {data.seat.row}{data.seat.nr}</p> : <p>BESÖKSBILJETT</p>}
                     <h3>Vi ses på eventet!</h3>
                 </div>
             </div>
