@@ -7,17 +7,21 @@ const Footer = () => {
     return (
         <>
             <div className="footer">
-                <h1>SPONSORER</h1>
-                <div className='top'>
-                    <img src="images/lfsodermanland.jpg" alt="lfsodermanland" />
-                    <img src="images/sparbanken.jpg" alt="sparbanken" />
-                    <img src="images/xtrfy.png" alt="xtrfy" />
-                </div>
-                <div className='bottom'>
-                    <div className='footer-info'>
-                        <h2>Kontakt</h2>
-                        <p>info@etowngaming.com</p>
+                <div className="event-sponsors">
+                    <h1>SPONSORER</h1>
+                    <div className="spons-three-col">
+                        <img src={process.env.PUBLIC_URL + '/images/sparbanken.jpg'} alt="sparbanken" />
+                        <img src={process.env.PUBLIC_URL + '/images/lfsodermanland.jpg'} alt="Länsförsäkrningar Södermanland" />
+                        <img src={process.env.PUBLIC_URL + '/images/cherryxtrfy.png'} alt="xtrfy" />
                     </div>
+                    <div className="spons-three-col">
+                        <img src={process.env.PUBLIC_URL + '/images/stiga-logo.png'} alt="sverok" />
+                        <img src={process.env.PUBLIC_URL + '/images/dreamhack-logo.png'} alt="sverok" />
+
+                    </div>
+                </div>
+
+                <div className='bottom'>
                     <div className='footer-info'>
                         <h2>Om oss</h2>
                         <a href="/">Info</a>
@@ -28,6 +32,10 @@ const Footer = () => {
                             <Link to="https://www.instagram.com/etowngaming/"><FaInstagram size={30} /></Link>
                             <Link to="https://discord.gg/2SvuEGEy3Q"><FaDiscord size={30} /></Link>
                         </div>
+                    </div>
+                    <div className='footer-info'>
+                        <h2>Kontakt</h2>
+                        <p>info@etowngaming.com</p>
                     </div>
                 </div>
             </div>
