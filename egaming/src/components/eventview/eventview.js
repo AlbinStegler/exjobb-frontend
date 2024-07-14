@@ -12,7 +12,8 @@ const EventView = () => {
         if (eventType === "Lan") {
             navigate('/lanInfo');
         } else if (eventType === "OnSite") {
-            navigate('/discordInfo');
+            // navigate('/discordInfo');
+            alert("Eventen på plats behöver inte anmälan, kom bara förbi!");
         } else if (eventType === "Online") {
             navigate('/onsiteInfo');
         }

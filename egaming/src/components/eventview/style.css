@@ -11,17 +11,18 @@
     align-items: center;
     flex-direction: column;
     margin: auto;
-
+    min-height: 80vh;
 }
 
 .event-info p {
     text-align: center;
     font-size: 1.2em;
     width: 500px;
+    margin: 1em auto;
 }
 
 .event-info h1 {
-    margin: 0.5em;
+    /* margin: 0.5em; */
 }
 
 .smaller h1 {
