@@ -5,7 +5,7 @@ const ThreeImages = ({ first, firstUrl, firstText, firstH1, second, secondUrl, s
     const path = process.env.PUBLIC_URL + /images/;
     return (
         <div className="three-images">
-            <div className="image-container">
+            <div className="image-container one">
                 <img src={path + first} alt
                     onClick={() => window
                         .open(firstUrl, "_self")} />
@@ -13,7 +13,7 @@ const ThreeImages = ({ first, firstUrl, firstText, firstH1, second, secondUrl, s
                 <p>{firstText}</p>
                 <button onClick={() => window.open(firstUrl, "_self")}>Läs mer</button>
             </div>
-            <div className="image-container">
+            <div className="image-container two">
                 <img src={path + second} alt
                     onClick={() => window
                         .open(secondUrl, "_self")} />
@@ -21,7 +21,7 @@ const ThreeImages = ({ first, firstUrl, firstText, firstH1, second, secondUrl, s
                 <p>{secondText}</p>
                 <button onClick={() => window.open(secondUrl, "_self")}>Läs mer</button>
             </div>
-            <div className="image-container">
+            <div className="image-container three">
                 <img src={path + third} alt
                     onClick={() => window
                         .open(thirdUrl, "_self")} />

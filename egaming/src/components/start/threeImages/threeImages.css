@@ -4,6 +4,7 @@
     flex-wrap: wrap;
     margin-top: 20px;
     width: 100%;
+    background-color: rgb(35, 35, 35);
 }
 
 .three-images img {
@@ -40,13 +41,31 @@
     }
 
     .three-images img {
-        display: none;
+
+        height: fit-content;
+        max-height: 300px;
+
+        /* display: none; */
     }
 
     .image-container {
-        width: 80%;
-        margin: 1em auto;
-        border-bottom: 1px solid rgb(110, 110, 110);
+        width: 100%;
+        padding: 3em 0;
+        /* height: 350px; */
+        margin: auto;
+        /* border-bottom: 1px solid rgb(110, 110, 110); */
+    }
+
+    .one {
+        background-color: rgb(24, 24, 24);
+    }
+
+    .two {
+        background-color: rgb(29, 29, 29);
+    }
+
+    .three {
+        background-color: rgb(35, 35, 35);
     }
 
 }

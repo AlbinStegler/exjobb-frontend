@@ -112,12 +112,12 @@ const CreateForm = () => {
                                     <label>{col / 2}</label>
                                 </div>
 
-                                <input className="slider" type="range" step="2" min="2" max="8" defaultValue="2" placeholder='Antal' onChange={e => handleCol(e)} />
+                                <input className="admin-slider" type="range" step="2" min="2" max="8" defaultValue="2" placeholder='Antal' onChange={e => handleCol(e)} />
                                 <div className="label-value">
                                     <label>Antal bord</label>
                                     <label>{row}</label>
                                 </div>
-                                <input className="slider" type="range" min="1" max="8" defaultValue="2" placeholder='Antal' onChange={e => handleRow(e)} />
+                                <input className="admin-slider" type="range" min="1" max="8" defaultValue="2" placeholder='Antal' onChange={e => handleRow(e)} />
 
                             </>
                             : ""}

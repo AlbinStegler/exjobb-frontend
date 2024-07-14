@@ -27,11 +27,12 @@
     align-items: center;
     font-size: 0.9em;
     padding: 0.7em 1em;
-    background-color: black;
+    background-color: rgb(22, 22, 22);
     color: gray;
     width: 20vw;
     height: 7vh;
-    border: gray 1px solid;
+    border: none;
+    box-shadow: 1px 1px 1px 1px rgb(0, 0, 0);
     border-radius: 25px;
 }
 
@@ -54,8 +55,8 @@
     }
 
     .member-box {
+        background-color: rgb(29, 29, 29);
         margin: 0;
-        width: 100%;
         max-width: 100%;
     }
 }
@@ -63,21 +64,18 @@
 @media screen and (max-width: 768px) {
 
     .member-box h1 {
-        font-size: 2.5em;
-        margin-bottom: 0.5em;
-        color: white;
+        display: none;
     }
 
 
     .member-container {
         flex-direction: column;
-        max-width: 80vw;
     }
 
     .member-box img {
-        padding: 1em 1.2em;
-        width: 100%;
         height: fit-content;
+        width: 100%;
+        padding: 0;
     }
 
     .member-text {
@@ -91,4 +89,15 @@
         width: 80vw;
     }
 
+}
+
+@media screen and (max-height: 675px) {
+
+    .member-container img {
+        display: none;
+    }
+
+    .member-text p {
+        font-size: 0.8em;
+    }
 }

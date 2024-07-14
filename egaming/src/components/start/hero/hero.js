@@ -1,16 +1,24 @@
 import React from 'react';
 import './style.css';
 
-const Hero = () => {
+const Hero = ({ contentText, contentUrl, backgroundUrl }) => {
+
+    const video = backgroundUrl.split('.').pop() === 'webm';
+
     return (
         <div className="hero">
-            <video className="background-video" autoPlay loop muted>
-
-                <source src={process.env.PUBLIC_URL + "images/first_export_long.webm"} type="video/webm" alt="backgroundvideo" />
-            </video>
+            {video ?
+                <video className="background-video" autoPlay loop muted>
+                    <source src={process.env.PUBLIC_URL + "images/" + backgroundUrl} type="video/webm" alt="backgroundvideo" />
+                </video>
+                :
+                <div>
+                    <img src={process.env.PUBLIC_URL + "images/" + backgroundUrl} alt="backgroundvideo" />
+                </div>
+            }
             <div className='hero-content'>
-                <img src="images/Banner.png" alt="banner" />
-                <h1>Eskilstunas största e-sportförening</h1>
+                <img src={"images/" + contentUrl} alt="banner" />
+                <h1>{contentText}</h1>
             </div>
         </div >
     );

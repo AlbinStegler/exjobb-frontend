@@ -5,24 +5,26 @@ import { FaFacebook } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa6";
 import { Link } from 'react-router-dom';
 
-const Hero = () => {
+const Hero = ({ img, smallHeader, header, text, buttonText, buttonLink, socials }) => {
     const navigate = useNavigate();
 
     const handleButtonClick = () => {
-        navigate('/your-path'); // replace '/your-path' with the path you want to navigate to
+        navigate(`${buttonLink}`);
     };
     return (
         <div className='info-box'>
-            <img src="images/blue_etown_logo.png" alt="banner" />
+            <img src={"images/" + img} alt="banner" />
             <div className="info-container">
-                <h3>En förening för spelintresserade!</h3>
-                <h1>Om oss</h1>
-                <p>Vi jobbar för begreppet "E-sport för alla",  e-sport där alla människor ska kunna delta, utvecklas och känna sig trygga. Vi arrangerar event, tävlingar, studiecirklar och andra aktiviteter för att främja e-sport och gamingkultur. </p>
-                <button onClick={handleButtonClick}>Kommande Händelser</button>
-                <div className="socials">
-                    <Link to="https://www.facebook.com/etowngaming"><FaFacebook size={40} /></Link>
-                    <Link to="https://www.instagram.com/etowngaming/"><FaInstagram size={40} /></Link>
-                </div>
+                <h3>{smallHeader}</h3>
+                <h1>{header}</h1>
+                <p>{text}</p>
+                <button onClick={handleButtonClick}>{buttonText}</button>
+                {socials ?
+                    <div className="socials">
+                        <Link to="https://www.facebook.com/etowngaming"><FaFacebook size={40} /></Link>
+                        <Link to="https://www.instagram.com/etowngaming/"><FaInstagram size={40} /></Link>
+                    </div>
+                    : null}
             </div>
         </div >
     );

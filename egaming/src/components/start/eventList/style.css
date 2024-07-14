@@ -1,16 +1,16 @@
+.event-list {
+    margin: 1em 0;
+}
+
 .scroll-list {
-    /* font-family: 'anton'; */
     display: flex;
     overflow-x: scroll;
     overflow-y: hidden;
     white-space: nowrap;
-    /* width: 100%; */
     gap: 1em;
     width: auto;
-    height: 36vh;
     cursor: grab;
-    margin: 0;
-    padding: 0;
+    padding: 1em 0;
 }
 
 .scroll-list h1 {
@@ -51,12 +51,13 @@
 
 
 .scroll-list-item>h1 {
+    margin-top: 0;
     width: 100%;
     text-transform: uppercase;
     font-size: 1.5rem;
     font-weight: 400;
     color: #fff;
-    text-align: center;
+    text-align: start;
 }
 
 .scroll-list-item>p {
@@ -66,13 +67,11 @@
 }
 
 .scroll-list-item {
+    min-width: 250px;
     background-color: rgb(28, 28, 28);
     margin: 0;
     margin-left: 2em;
-    width: 400px;
-    height: 75%;
-    min-width: 300px;
-    padding: 1em 3em;
+    padding: 1em 1em;
 }
 
 .inactive {
