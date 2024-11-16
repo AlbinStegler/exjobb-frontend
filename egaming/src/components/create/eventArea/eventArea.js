@@ -1,11 +1,10 @@
 import React from "react";
-import './style.css';
-
+import style from "./eventArea.module.css"
 
 const EventArea = () => {
     return (
         <>
-            <div className="event-area">
+            <div className={style.eventArea}>
                 <h1>HANGOUT AREA</h1>
             </div>
         </>

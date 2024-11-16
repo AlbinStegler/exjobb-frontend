@@ -1,22 +1,22 @@
 import React from "react";
-import './style.css';
+import style from "./colorExplanation.module.css";
 
 const ColorExplanation = () => {
 
     return (
-        <div className="container">
+        <div className={style.container}>
 
-            <div className="color">
+            <div className={style.color}>
                 <p>TILLGÄNGLIG</p>
-                <div className="color-box background-blue" id="available"></div>
+                <div className={`${style.colorBox} ${style.backgroundBlue}`} id="available"></div>
             </div>
-            <div className="color">
+            <div className={style.color}>
                 <p>BOKAD</p>
-                <div className="color-box background-red" id="booked"></div>
+                <div className={`${style.colorBox} ${style.backgroundRed}`} id="booked"></div>
             </div>
-            <div className="color">
+            <div className={style.color}>
                 <p>VALD</p>
-                <div className="color-box background-gray" id="selected"></div>
+                <div className={`${style.colorBox} ${style.backgroundGray}`} id="selected"></div>
             </div>
 
         </div>
