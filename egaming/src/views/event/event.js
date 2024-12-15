@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Nav from "../../components/navbar/nav";
 import "./style.css";
 import { useLocation, useNavigate } from 'react-router-dom';
-// import sverokModel from "../../models/sverokModel";
+import sverokModel from "../../models/sverokModel";
 import eventModel from "../../models/eventModel";
 import userModel from "../../models/userModel";
 // import Lottie from 'lottie-react';
@@ -239,7 +239,24 @@ const Event = () => {
         }
         // Är personen medlem?
         // let response = await sverokModel.createMember({ firstname, lastname, email, phone, address, zip, city, nickname, ssn })
-        let response = { request_result: "success" }
+        let date = new Date();
+        date = date.toLocaleString("en-SE", { timeZone: "Europe/Stockholm" }).slice(0, 10);
+        const apiStructure = {
+            "member": {
+                "firstname": formData.fName,
+                "lastname": formData.lName,
+                "renewed": date,
+                "email": formData.email,
+                "socialsecuritynumber": formData.ssn,
+                "phone1": formData.phone,
+                "street": formData.address,
+                "zip_code": formData.zip,
+                "city": formData.city,
+                "member_nick": formData.nickname
+            }
+        };
+        let response = await sverokModel.createMember(apiStructure)
+        // let response = { request_result: "success" }
         if (response.name === "An Internal Error Has Occurred." || response.request_result === "success") {
             // Om ja eller nej, skapa i databas och boka plats
             let now = new Date();

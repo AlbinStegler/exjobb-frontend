@@ -56,7 +56,8 @@ const EventView = () => {
                 <h1 className={style.pageHeader}>Kommande event</h1>
                 <p>Här under är alla eventen som är inplanerade. Anmäl er gärna till eventet så vi vet hur många som kommer och för att bli medlem i föreningen.</p>
             </div>
-            {
+            
+            { 
                 events.map((event, index) => (
                     <div key={index} onClick={() => handleClick(event.eventType)} className={event.eventType === "Lan" ? `${style.smaller} ${style.eventRed}` : `${style.smaller} ${style.eventBlue}`}>
                         <h1>{event.eventName}</h1>

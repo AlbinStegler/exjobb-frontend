@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Nav from '../../components/navbar/nav';
-import './style.css';
+// import './style.css';
+import style from './userSeat.module.css'
 import eventModel from '../../models/eventModel';
 import Table from '../../components/create/table/table';
 import Stage from '../../components/create/stage/stage';
@@ -33,19 +34,19 @@ const Book = () => {
     function confirmSeat() {
         navigate('/event', { state: { seat: selected } });
     }
-
+    console.log(events.seats)
 
     return (
         <>
             <Nav />
             <ColorExplanation />
-            <div className="booking-container">
-                <div className='seat-view'>
+            <div className={style.bookingContainer}>
+                <div className={style.seatView}>
                     <Stage />
-                    <div id="booking" className='booking-area'>
+                    <div id="booking" className={style.bookingArea}>
                         {/* Antalet keys -1 pga _id */}
                         {events.seats && Array.from({ length: Object.keys(events.seats).length - 1 }).map((_, j) => (
-                            <div className="row" key={j}>
+                            <div className={style.row} key={j}>
                                 <h1>{rowNames[j]}</h1>
                                 {events.seats[rowNames[j]] && Array.from({ length: Object.keys(events.seats.A)[Object.keys(events.seats.A).length - 1] / 2 }).map((_, i) => (
                                     <Table
@@ -60,7 +61,7 @@ const Book = () => {
                     <EventArea />
                 </div>
             </div>
-            {selected.nr && <div className="confirm-container">
+            {selected.nr && <div className={style.confirmContainer}>
                 <button id="confirm" onClick={confirmSeat}><span>BOKA PLATS: {selected.row}{selected.nr}</span></button>
             </div>}
         </>
