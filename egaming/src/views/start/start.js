@@ -34,7 +34,7 @@ const StartPage = () => {
         header: 'Bli en E-Town Gamer',
         img: 'je.png',
         p1: 'Föreningen lyssnar alltid till sina medlemmar och genomför event som NI medlemmar efterfrågar, därför är det viktigt att bli medlem om du vill delta i utvecklingen av Eskilstunas e-sport och gamingkultur.',
-        p2: 'Att vara medlem kostar inget och kommer att innebära att du har möjlighet att delta på våra kommande event samt påverka vad vi ska genomföra i framten.',
+        p2: 'Att vara medlem kostar inget och kommer att innebära att du har möjlighet att delta på våra kommande event samt påverka vad vi ska genomföra i framtiden.',
         buttonText: 'Bli Medlem',
         buttonLink: 'https://ebas.sverok.se/blimedlem/etowngaming',
     }
