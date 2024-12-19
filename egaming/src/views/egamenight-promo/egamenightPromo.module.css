@@ -1,0 +1,81 @@
+.first {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.boka {
+    color: green;
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.2em;
+    width: 400px;
+    border: 0;
+    border-radius: 3px;
+}
+
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: bottom;
+    flex-direction: row;
+    img {
+        width: 450px;
+        height: 350px;
+        object-fit:scale-down;
+        margin: 0 55px;
+    }
+    .ung {
+        scale: 0.8
+    }
+}
+
+.countdown {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.2em;
+    height: 20vh;
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20vh;
+}
+
+.separator {
+    background-image: url("../../../public/images/Lan2022.jpg");    
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 400px;
+    filter: blur(4.5px);
+}
+
+@media screen and (max-width: 768px) {
+    .hero {
+        img {
+            width: 100px;
+            margin: 0 1em;
+            height: 100px;
+        }
+        span {
+            display: none;
+        }
+    }
+
+    .countdown {
+        font-size: 0.6em;
+        text-align: center;
+    }
+    .boka {
+        width: 80%;
+    }
+}

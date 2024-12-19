@@ -10,9 +10,9 @@ import userModel from "../../models/userModel";
 
 const Event = () => {
     const location = useLocation();
-    const seat = location.state?.seat; // Use optional chaining operator
-    const visitor = location.state?.visitor;
     const navigate = useNavigate();
+    const seat = location.state?.seat; // Use optional chaining operator skickas från book.js
+    const visitor = location.state?.visitor; // Use optional chaining operator skickas från book.js
 
 
     const [parentName, setParentName] = useState("");
@@ -21,6 +21,7 @@ const Event = () => {
     const [underAge, setUnderAge] = useState(false);
     const [currentStep, setCurrentStep] = useState(0);
 
+    // Om personen är under 18 år, sätt förälderns namn och telefonnummer
     useEffect(() => {
         if (parentName && parentPhone) {
             console.log(parentName, parentPhone);
@@ -356,7 +357,7 @@ const Event = () => {
                     <p>Boka</p>
                 </div>
             </div>
-            <div className="form-container">
+            <div className="form-container-booking">
                 {seat ? <h1>BOKNING AV PLATS {seat.row}{seat.nr}</h1> : <h1>BOKNING AV BESÖKSBILJETT</h1>}
                 <form id='form' className="register-form animate__animated" onSubmit={handleSubmit}>
                     {currentStep < 3 ? steps[currentStep].fields.map((field, index) => (
