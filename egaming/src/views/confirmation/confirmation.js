@@ -1,14 +1,44 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Nav from '../../components/navbar/nav';
+import emailjs from '@emailjs/browser';
 import { useLocation } from 'react-router-dom';
 
 import './style.css';
 
 const AdminStart = () => {
     const location = useLocation();
+    const data = location.state?.userData;
 
-    const data = location.state?.userData; // Use optional chaining operator
-    console.log(data);
+    // REACT_APP_EMAIL_PUBLIC_KEY
+    // REACT_APP_EMAIL_TEMPLATE_ID
+    // REACT_APP_EMAIL_SERVICE_ID
+    useEffect(() => {
+        // This will run only once when the component mounts
+        const sendEmail = async () => {
+            let email = {
+                "from_name": "info@etowngaming.com",  // The name of the sender (user's name)
+                "from_email": data?.email,     // The user's email address
+                "to_name": data?.firstname,    // The name of the recipient (user's name)
+                "to_email": data?.email,       // The recipient email (user's email)
+                "nickname": data?.nickname,
+                "seat": `Bokad plats ${data?.seat?.row}${data?.seat?.nr}`
+            };
+
+            try {
+                await emailjs.send(
+                    process.env.REACT_APP_EMAIL_SERVICE_ID,
+                    process.env.REACT_APP_EMAIL_TEMPLATE_ID,
+                    email,
+                    process.env.REACT_APP_EMAIL_PUBLIC_KEY
+                );
+                console.log("Email sent successfully!");
+            } catch (error) {
+                console.error("Error sending email:", error);
+            }
+        };
+
+        sendEmail();
+    }, [data]); // Empty dependency array means this runs once on mount
 
     return (
         <>

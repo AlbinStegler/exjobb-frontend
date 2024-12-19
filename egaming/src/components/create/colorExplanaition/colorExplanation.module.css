@@ -17,24 +17,24 @@
     align-items: center;
 }
 
-.color-box {
+.colorBox {
     width: 25px;
     height: 25px;
     border-radius: 5px;
     margin: 1em;
 }
 
-.background-red {
+.backgroundRed {
     background-color: rgb(204, 37, 37);
     margin: 0;
 }
 
-.background-blue {
+.backgroundBlue {
     background-color: rgb(49, 49, 197);
     margin: 0;
 }
 
-.background-gray {
+.backgroundGray {
     background-color: #444444;
     margin: 0;
 }

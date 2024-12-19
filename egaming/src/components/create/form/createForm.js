@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Table from '../table/table';
 import Stage from '../stage/stage';
-import './style.css';
+import style from './createForm.module.css';
 import eventModel from "../../../models/eventModel";
 import { useNavigate } from "react-router-dom";
 
@@ -74,14 +74,14 @@ const CreateForm = () => {
     }
     return (
         <>
-            <div className="instructions">
+            <div className={style.instructions}>
                 <p>Välj antalet rader och hur många bord som ni vill ha till erat event. Det här skapar datan för databasen som krävs för att användare skall kunna boka in sig på eventet.</p>
             </div>
-            <div className='event-edit'>
-                <div className='event-edit-sidebar'>
+            <div className={style.eventEdit}>
+                <div className={style.eventEditSidebar}>
                     <h1>SKAPA EVENT</h1>
                     <form >
-                        <div className="label-value">
+                        <div className={style.labelValue}>
                             <label>Namn på event</label>
                         </div>
                         <input type="text" placeholder='Namn' onChange={e => handleEventName(e)} required />
@@ -93,31 +93,31 @@ const CreateForm = () => {
                                 <option value="Online">Event på discord</option>
                             </select>
                         </div>
-                        <div className="label-value">
+                        <div className={style.labelValue}>
                             <label>Plats</label>
                         </div>
                         <input type="text" placeholder='Plats' onChange={e => setEventLocation(e.target.value)} required />
-                        <div className="label-value">
+                        <div className={style.labelValue}>
                             <label>Beskrivning</label>
                         </div>
                         <input type="text" placeholder='Beskrivning' onChange={e => setEventDescription(e.target.value)} required />
-                        <div className="label-value">
+                        <div className={style.labelValue}>
                             <label>Datum</label>
                         </div>
                         <input type="date" default={eventDate} onChange={(e) => handleDate(e)} placeholder='Datum' required="required" />
                         {eventType === "Lan" ?
                             <>
-                                <div className="label-value">
+                                <div className={style.labelValue}>
                                     <label>Rader</label>
                                     <label>{col / 2}</label>
                                 </div>
 
-                                <input className="admin-slider" type="range" step="2" min="2" max="8" defaultValue="2" placeholder='Antal' onChange={e => handleCol(e)} />
-                                <div className="label-value">
+                                <input className={style.adminSlider} type="range" step="2" min="2" max="8" defaultValue="2" placeholder='Antal' onChange={e => handleCol(e)} />
+                                <div className={style.labelValue}>
                                     <label>Antal bord</label>
                                     <label>{row}</label>
                                 </div>
-                                <input className="admin-slider" type="range" min="1" max="8" defaultValue="2" placeholder='Antal' onChange={e => handleRow(e)} />
+                                <input className={style.adminSlider} type="range" min="1" max="8" defaultValue="2" placeholder='Antal' onChange={e => handleRow(e)} />
 
                             </>
                             : ""}
@@ -125,18 +125,18 @@ const CreateForm = () => {
                     </form>
 
                     {eventType === "Lan" ? <>
-                        <div className="event-info">
+                        <div className={style.eventInfo}>
                             <h2>Antal platser {row * col * 2}</h2>
                         </div>
                     </> : ""}
 
                 </div>
                 {eventType === "Lan" ? <>
-                    <div className='event-view'>
+                    <div className={style.eventView}>
                         <Stage />
-                        <div id="booking" className='booking-area'>
+                        <div id="booking" className={style.bookingArea}>
                             {Array.from({ length: col }).map((_, j) => (
-                                <div className="row" key={j}>
+                                <div className={style.row} key={j}>
                                     <h1>{rowNames[j]}</h1>
                                     {Array.from({ length: row }).map((_, i) => (
                                         <Table seatInfo={{ "row": rowNames[j], "nr": i * 2 + 1 }}

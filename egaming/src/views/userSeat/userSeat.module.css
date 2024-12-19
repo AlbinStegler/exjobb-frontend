@@ -1,4 +1,4 @@
-.booking-container {
+.bookingContainer {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -7,7 +7,7 @@
     background-color: rgb(20, 20, 20);
 }
 
-.seat-view {
+.seatView {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -19,7 +19,7 @@
     margin-bottom: 1em;
 }
 
-.confirm-container {
+.confirmContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -27,7 +27,7 @@
     margin: 20px;
 }
 
-.confirm-container button {
+.confirmContainer button {
 
     font-family: 'anton';
     font-size: 2em;
@@ -42,7 +42,7 @@
 }
 
 @media screen and (max-width: 768px) {
-    .seat-view {
+    .seatView {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -53,7 +53,7 @@
         border: none;
     }
 
-    .booking-container {
+    .bookingContainer {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -62,7 +62,7 @@
         background-color: rgb(20, 20, 20);
     }
 
-    .confirm-container button {
+    .confirmContainer button {
         font-size: 1.5em;
         width: 80vw;
         height: 10vh;
@@ -76,8 +76,81 @@
 }
 
 @media screen and (max-width: 1200px) {
-    .booking-container {
+    .bookingContainer {
         width: 100vw;
     }
 
+}
+
+
+
+
+/* Kolla igenom detta om det finns duplicate */
+
+
+.row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    gap: 5px;
+}
+
+.row h1 {
+    font-family: anton;
+    font-weight: 100;
+    color: rgb(167, 26, 26);
+}
+
+.row:nth-child(2n) {
+    padding-right: 30px;
+}
+
+.row:last-child {
+    padding-right: 0;
+}
+
+.bookingArea {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    min-height: 47vh;
+    margin: 4vw 4vh;
+    gap: 2px;
+}
+
+.labelValue {
+    display: flex;
+    padding: 1em 0;
+    justify-content: space-between;
+}
+
+.adminSlider {
+    width: 100%;
+    height: 25px;
+    background: #d4d4d4;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.adminSlider:hover {
+    opacity: 1;
+}
+
+.adminSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: #0778e2;
+    cursor: pointer;
+}
+
+.adminSlider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #2f20bb;
+    cursor: pointer;
 }

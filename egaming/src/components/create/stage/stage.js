@@ -1,9 +1,9 @@
 import React from 'react';
-import './style.css'
+import style from './stage.module.css'
 
 const stage = () => {
     return (
-        <div className='stage'>
+        <div className={style.stage}>
             <h1>MAIN STAGE</h1>
         </div>
     );

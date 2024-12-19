@@ -1,4 +1,4 @@
-.event-area {
+.eventArea {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -11,7 +11,7 @@
     margin: 4vw 4vh;
 }
 
-.event-area h1 {
+.eventArea h1 {
     font-family: Anton;
     font-weight: 100;
     color: rgb(0, 0, 0);
@@ -20,11 +20,11 @@
 }
 
 @media screen and (max-width: 768px) {
-    .event-area h1 {
+    .eventArea h1 {
         font-size: 1.5em;
     }
 
-    .event-area {
+    .eventArea {
         height: 10vh;
     }
 }

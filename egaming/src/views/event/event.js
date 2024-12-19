@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Nav from "../../components/navbar/nav";
 import "./style.css";
 import { useLocation, useNavigate } from 'react-router-dom';
-// import sverokModel from "../../models/sverokModel";
+import sverokModel from "../../models/sverokModel";
 import eventModel from "../../models/eventModel";
 import userModel from "../../models/userModel";
 // import Lottie from 'lottie-react';
@@ -10,9 +10,9 @@ import userModel from "../../models/userModel";
 
 const Event = () => {
     const location = useLocation();
-    const seat = location.state?.seat; // Use optional chaining operator
-    const visitor = location.state?.visitor;
     const navigate = useNavigate();
+    const seat = location.state?.seat; // Use optional chaining operator skickas från book.js
+    const visitor = location.state?.visitor; // Use optional chaining operator skickas från book.js
 
 
     const [parentName, setParentName] = useState("");
@@ -21,6 +21,7 @@ const Event = () => {
     const [underAge, setUnderAge] = useState(false);
     const [currentStep, setCurrentStep] = useState(0);
 
+    // Om personen är under 18 år, sätt förälderns namn och telefonnummer
     useEffect(() => {
         if (parentName && parentPhone) {
             console.log(parentName, parentPhone);
@@ -239,7 +240,24 @@ const Event = () => {
         }
         // Är personen medlem?
         // let response = await sverokModel.createMember({ firstname, lastname, email, phone, address, zip, city, nickname, ssn })
-        let response = { request_result: "success" }
+        let date = new Date();
+        date = date.toLocaleString("en-SE", { timeZone: "Europe/Stockholm" }).slice(0, 10);
+        const apiStructure = {
+            "member": {
+                "firstname": formData.fName,
+                "lastname": formData.lName,
+                "renewed": date,
+                "email": formData.email,
+                "socialsecuritynumber": formData.ssn,
+                "phone1": formData.phone,
+                "street": formData.address,
+                "zip_code": formData.zip,
+                "city": formData.city,
+                "member_nick": formData.nickname
+            }
+        };
+        let response = await sverokModel.createMember(apiStructure)
+        // let response = { request_result: "success" }
         if (response.name === "An Internal Error Has Occurred." || response.request_result === "success") {
             // Om ja eller nej, skapa i databas och boka plats
             let now = new Date();
@@ -339,7 +357,7 @@ const Event = () => {
                     <p>Boka</p>
                 </div>
             </div>
-            <div className="form-container">
+            <div className="form-container-booking">
                 {seat ? <h1>BOKNING AV PLATS {seat.row}{seat.nr}</h1> : <h1>BOKNING AV BESÖKSBILJETT</h1>}
                 <form id='form' className="register-form animate__animated" onSubmit={handleSubmit}>
                     {currentStep < 3 ? steps[currentStep].fields.map((field, index) => (

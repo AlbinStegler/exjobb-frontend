@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './style.css';
+import style from './events.module.css';
 import eventModel from '../../models/eventModel';
 
 const Events = () => {
@@ -29,18 +29,18 @@ const Events = () => {
 
 
     return (
-        <div className='events-container'>
+        <div className={style.eventsContainer}>
             <h1>Event</h1>
             <h3>Antal event: {events.length}</h3>
             {events.length > 0 ? events.map((event, index) => (
-                event && <div key={index} className={event.active === true ? "event active-event" : "event"}>
+                event && <div key={index} className={event.active === true ? `${style.event} ${style.activeEvent}` : `${style.event}`}>
                     <h1>{event.eventName}</h1>
-                    <div className='two-col'>
+                    <div className={style.twoCol}>
                         <p>{new Date(event.eventDate).toLocaleDateString('sv-SE')}</p>
                         <button onClick={e => deleteEvent(e, event._id)}>Ta bort event</button>
                     </div>
-                    <div className='two-col'>
-                        {event.active === true ? <p className='green'>AKTIVT</p> : <p className='red'>EJ AKTIVT</p>}
+                    <div className={style.twoCol}>
+                        {event.active === true ? <p className={style.green}>AKTIVT</p> : <p className={style.red}>EJ AKTIVT</p>}
                         {event.active !== true ? <button onClick={e => activateEvent(e, event.eventName)}>Aktivera</button> : null}
                     </div>
                 </div>
