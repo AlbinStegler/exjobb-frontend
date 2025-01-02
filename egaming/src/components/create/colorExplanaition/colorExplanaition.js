@@ -4,6 +4,7 @@ import style from "./colorExplanation.module.css";
 const ColorExplanation = () => {
 
     return (
+        <>
         <div className={style.container}>
 
             <div className={style.color}>
@@ -18,8 +19,8 @@ const ColorExplanation = () => {
                 <p>VALD</p>
                 <div className={`${style.colorBox} ${style.backgroundGray}`} id="selected"></div>
             </div>
-
         </div>
+        </>
     )
 }
 

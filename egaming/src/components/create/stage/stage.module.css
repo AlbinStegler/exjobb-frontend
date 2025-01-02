@@ -17,3 +17,20 @@
     font-size: 3em;
     margin: 0;
 }
+
+.info {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 600px) {
+
+    .info {
+        font-size: 1em;
+        margin: 1em;
+        text-align: center;
+    }
+    .stage {
+        font-size: 0.5em;
+    }
+}
