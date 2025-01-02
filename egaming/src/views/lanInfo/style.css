@@ -5,8 +5,10 @@
     justify-content: center;
     max-width: 500px;
     margin: auto;
-    padding: 4em;
+    padding: 0.5em 2em;
     border-bottom: 1px solid #a0a0a0;
+    height: 100vh;
+    font-size: 1.2em;
 }
 
 .info-data {
@@ -19,12 +21,11 @@
 
 .lan-info button {
     margin-top: 1em;
-    background-color: rgb(52, 80, 163);
+    background-color: rgb(255, 255, 255);
     color: black;
     width: 250px;
-    padding: 1em;
+    
     border: none;
-    box-shadow: 1px 0px 4px 4px #2d2d8b;
     text-transform: uppercase;
     font-weight: 800;
 }
@@ -110,9 +111,12 @@
 }
 
 @media (max-width: 800px) {
-
+    .lan-info {
+        height:auto;
+    }
     .content td:nth-child(4),
     .content th:nth-child(4) {
         display: none;
     }
+    ;
 }

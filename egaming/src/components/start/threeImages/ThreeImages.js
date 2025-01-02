@@ -6,7 +6,7 @@ const ThreeImages = ({ first, firstUrl, firstText, firstH1, second, secondUrl, s
     return (
         <div className="three-images">
             <div className="image-container one">
-                <img src={path + first} alt
+                <img src={path + first} alt="first"
                     onClick={() => window
                         .open(firstUrl, "_self")} />
                 <h1>{firstH1}</h1>
@@ -14,7 +14,7 @@ const ThreeImages = ({ first, firstUrl, firstText, firstH1, second, secondUrl, s
                 <button onClick={() => window.open(firstUrl, "_self")}>Läs mer</button>
             </div>
             <div className="image-container two">
-                <img src={path + second} alt
+                <img src={path + second} alt="second"
                     onClick={() => window
                         .open(secondUrl, "_self")} />
                 <h1>{secondH1}</h1>
@@ -22,7 +22,7 @@ const ThreeImages = ({ first, firstUrl, firstText, firstH1, second, secondUrl, s
                 <button onClick={() => window.open(secondUrl, "_self")}>Läs mer</button>
             </div>
             <div className="image-container three">
-                <img src={path + third} alt
+                <img src={path + third} alt="third"
                     onClick={() => window
                         .open(thirdUrl, "_self")} />
                 <h1>{thirdH1}</h1>

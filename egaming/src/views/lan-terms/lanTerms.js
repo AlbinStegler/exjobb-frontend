@@ -96,7 +96,7 @@ const LanTerms = () => {
                     Årsmötet kan bestämma att föreningen ska läggas ned. Föreningen läggs inte ned så länge det finns minst tre medlemmar som vill driva föreningen vidare. Om föreningen läggs ned ska alla föreningens skulder betalas och konton avslutas. Om föreningen har pengar eller saker kvar ska dessa skänkas till en ideell förening med liknande syfte eller till Sverok.</p>
 
                 <h2>Så behandlas dina personuppgifter</h2>
-                <p>Du ansöker nu om medlemsskap i föreningen under 2024. Du ansluts också till Sverok. Är du mellan 6-25 år, så får föreningen bidrag för att du är medlem. Inga personuppgifter kommer att lämnas ut av Sverok.</p>
+                <p>Du ansöker nu om medlemsskap i föreningen under 2025. Du ansluts också till Sverok. Är du mellan 6-25 år, så får föreningen bidrag för att du är medlem. Inga personuppgifter kommer att lämnas ut av Sverok.</p>
             </div>
         </div >
     );

@@ -371,7 +371,7 @@ const Event = () => {
                                 className={field === 'Jag godkänner villkoren' ? "checkbox" : null}
                                 onChange={handleChange}
                                 placeholder={field === 'Personnummer' ? 'ÅÅÅÅMMDDXXXX' : `${field}`}
-                                required />
+                                />
                         </div>
                     )) :
                         <div className="confirmation-field">

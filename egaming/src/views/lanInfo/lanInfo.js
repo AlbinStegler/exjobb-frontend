@@ -21,16 +21,15 @@ const LanInfo = () => {
             <div className="lan-info">
                 <div className="info-data">
                     <h1 className="page-header">Lan Info</h1>
-                    <p>Vår förening har under flera år hållit i ett årligt lanevent. De enda kraven för att delta är att vara medlem i föreningen. Alla event är utan inträde och att vara medlem är helt gratis. </p>
+                    <p>Vår förening har under flera år hållit i ett årligt lanevent. Vi ser gärna att ni blir medlem i föreningen, det är kostnadsfritt och det gäller även lanet </p>
                     <p>När datumet för eventet närmar sig kommer ett schema med hamna här, med olika tävlingar och händelser på eventet</p>
-                    <p>Genom att boka en plats till eventet blir du automatiskt medlem i föreningen.</p>
-                    <p>Då alla deltagare måste vara medlem i föreningen bokas varje plats enskilt.</p>
+                    <p>Alla platser bokas enskilt.</p>
                     <p>Vill du endast komma och hänga i hangoutdelen kan du boka en besöksbiljett!</p>
                 </div>
                 <button onClick={handleClick}>Boka din plats här</button>
                 <button onClick={handleVisitor}>Boka en besöksbiljett</button>
             </div>
-            <div className="eventplan">
+            {/* <div className="eventplan">
                 <h1 className="page-header">2023</h1>
                 <p>Det här är det tidigare eventets schema och några av de turneringarna som hölls då</p>
                 <div className="content">
@@ -44,7 +43,7 @@ const LanInfo = () => {
                         <tr><td>21.00-23.00</td><td>Fortnite Score Racing</td></tr>
                     </table>
                 </div>
-            </div>
+            </div> */}
             <EgameNights />
         </div>
     </>

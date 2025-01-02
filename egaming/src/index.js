@@ -41,7 +41,7 @@ root.render(
           <Route path="/lan-terms" element={<LanTerms />} />
           <Route path="/sverok-register" element={<SverokRegister />} />
           <Route path="/new-members" element={<NewMemberView />} />
-          <Route path="/promo" element={<EgameNightPromo />} />
+          <Route path="/lan" element={<EgameNightPromo />} />
         </Routes>
       </main>
       <footer>
