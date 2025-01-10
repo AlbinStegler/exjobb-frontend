@@ -76,11 +76,11 @@ const EgamenightPromo = () => {
                 <div className={style.info2text}>
                     <h3>Välkommen till E-Game Night på Lokomotivet!</h3>
                     <p>
-                        Är du redo för en helg full av gaming, gemenskap och spännande utmaningar? Då är E-Game Night, arrangerat av E-Town Gaming och Ungfritid, evenemanget för dig!
+                        Är du redo för två dagar fyllt med gaming, gemenskap och spännande utmaningar? Då är E-Game Night, arrangerat av E-Town Gaming och Ung fritid, evenemanget för dig!
                     </p>
                     <ul>
                         <li>När: 18-19 februari</li>
-                        <li>Var: Lokomotivet, Eskilstuna</li>
+                        <li>Var: Lokomotivet, Verkstadsgatan 8, Eskilstuna</li>
                         <li>Tid: Portarna öppnar 11.00 den 18 februari och lanet avslutas 12.00 den 19 februari.</li>
                     </ul>
                     <h3>Vad kan du förvänta dig?</h3>
