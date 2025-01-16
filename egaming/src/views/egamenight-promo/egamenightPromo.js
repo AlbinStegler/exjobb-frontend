@@ -92,7 +92,7 @@ const EgamenightPromo = () => {
                             Begränsat antal platser!</li>
                     </ul>
 
-                    <p>Det finns totalt 64 LAN-platser och 50 besöksplatser, så se till att boka din plats i tid!</p>
+                    <p>Det finns totalt 72 LAN-platser och 50 besöksplatser, så se till att boka din plats i tid!</p>
                 </div>
 
             </div>

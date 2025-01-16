@@ -3,6 +3,9 @@ import Nav from "../../components/navbar/nav";
 import EgameNights from "../../components/start/egameNights/egameNights";
 import helpers from "../../utils/helpers";
 import { useNavigate } from "react-router-dom";
+import Lottie from 'lottie-react';
+import arrow from '../../lotties/arrow.json';
+
 
 import './style.css';
 
@@ -28,6 +31,16 @@ const LanInfo = () => {
                 </div>
                 <button onClick={handleClick}>Boka din plats här</button>
                 <button onClick={handleVisitor}>Boka en besöksbiljett</button>
+            <Lottie onClick={handleClick}
+                loop
+                autoPlay
+                style={{ width: "100px", height: "100px" }}
+            />
+                <Lottie animationData={arrow} onClick={handleClick} className="arrow"
+                    loop
+                    autoPlay
+                    style={{ width: "100px", height: "100px" }}
+                />
             </div>
             {/* <div className="eventplan">
                 <h1 className="page-header">2023</h1>
