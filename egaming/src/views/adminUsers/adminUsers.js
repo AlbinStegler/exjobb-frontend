@@ -17,6 +17,7 @@ const AdminUsers = () => {
 
     useEffect(() => {
             fetchUsers();
+            console.log(users);
         }, []);
 
     return (
