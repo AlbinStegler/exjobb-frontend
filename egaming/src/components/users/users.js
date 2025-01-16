@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react';
 import './style.css';
 import userModel from '../../models/userModel';
 import eventModel from '../../models/eventModel';
+import { useNavigate } from 'react-router-dom';
 
 
 const Users = () => {
     const [users, setUsers] = useState([]);
-
+    const navigate = useNavigate();
     async function fetchUsers() {
         let activeEvent = await eventModel.getActiveEvent();
         if (activeEvent) {
@@ -16,9 +17,15 @@ const Users = () => {
     }
 
 
+    function moveToUser() {
+        return () => {
+            navigate("/admin/users");
+        };
+    }
+
     useEffect(() => {
         fetchUsers();
-    }, [users]);
+    }, []);
 
     async function handleInOut(user) {
         if (user.checked_in) {
@@ -59,11 +66,12 @@ const Users = () => {
             </div>
         </div>
     ));
-
-
-
+    
+    
+    
     return (
         <div className="users-container">
+            <button onClick={moveToUser()}>Användare</button>
             <div className='two-col'>
                 <h1>Registrerade användare</h1>
                 <button onClick={fetchUsers}>Uppdatera</button>

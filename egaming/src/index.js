@@ -20,6 +20,7 @@ import LanTerms from './views/lan-terms/lanTerms';
 import SverokRegister from './views/sverok-register/sverokRegister';
 import NewMemberView from './views/new-member-view/newMemberView';
 import EgameNightPromo from './views/egamenight-promo/egamenightPromo';
+import AdminUsers from './views/adminUsers/adminUsers';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -42,6 +43,7 @@ root.render(
           <Route path="/sverok-register" element={<SverokRegister />} />
           <Route path="/new-members" element={<NewMemberView />} />
           <Route path="/lan" element={<EgameNightPromo />} />
+          <Route path="/admin/users" element={<AdminUsers />} />
         </Routes>
       </main>
       <footer>
