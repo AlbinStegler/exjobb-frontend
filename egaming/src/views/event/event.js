@@ -256,8 +256,8 @@ const Event = () => {
                 "member_nick": formData.nickname
             }
         };
-        // let response = await sverokModel.createMember(apiStructure) // AVKOMMENTERA NÄR API ÄR KLAR
-        let response = { request_result: "success" } // För testning
+        let response = await sverokModel.createMember(apiStructure) // AVKOMMENTERA NÄR API ÄR KLAR
+        // let response = { request_result: "success" } // För testning
         if (response.name === "An Internal Error Has Occurred." || response.request_result === "success") {
             // Om ja eller nej, skapa i databas och boka plats
             let now = new Date();
