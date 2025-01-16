@@ -36,7 +36,7 @@ const LanInfo = () => {
                 autoPlay
                 style={{ width: "100px", height: "100px" }}
             />
-                <Lottie animationData={arrow} onClick={handleClick} className="arrow"
+                <Lottie animationData={arrow} className="arrow"
                     loop
                     autoPlay
                     style={{ width: "100px", height: "100px" }}
