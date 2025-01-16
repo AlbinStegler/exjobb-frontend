@@ -18,9 +18,9 @@ const userModel = {
     },
     getUsersByEvent: async function getUsersByEvent(event) {
         const url = urlModule.getUrl();
-        console.log(`${url}/users/event/${event}`);
         try {
-            const result = await fetch(`${url}/users/event/${event}`, {
+            const encodedEvent = encodeURIComponent(event);
+            const result = await fetch(`${url}/users/event/${encodedEvent}`, {
                 headers: {
                     'apiKey': apiKey
                 }
