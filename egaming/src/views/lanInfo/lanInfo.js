@@ -27,6 +27,7 @@ const LanInfo = () => {
                     <p>Vår förening har under flera år hållit i ett årligt lanevent. Vi ser gärna att ni blir medlem i föreningen, det är kostnadsfritt och det gäller även lanet </p>
                     <p>När datumet för eventet närmar sig kommer ett schema med hamna här, med olika tävlingar och händelser på eventet</p>
                     <p>Alla platser bokas enskilt.</p>
+                    <p>OBS! Skulle det vara så att ni inte kan hitta platser bredvid varandra och är ett större sällskap, skriv till oss på info@etowngaming.com, så återkommer vi om vi kan ordna platserna till er</p>
                     <p>Vill du endast komma och hänga i hangoutdelen kan du boka en besöksbiljett!</p>
                 </div>
                 <button onClick={handleClick}>Boka din plats här</button>

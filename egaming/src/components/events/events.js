@@ -6,7 +6,6 @@ const Events = () => {
 
     const [events, setEvents] = useState([]);
     const [refetch, setRefetch] = useState(false);
-
     useEffect(() => {
         const fetchEvents = async () => {
             let res = await eventModel.getEvents();
