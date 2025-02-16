@@ -5,7 +5,7 @@ import arrow from '../../lotties/arrow.json';
 import { useNavigate } from "react-router-dom";
 
 const EgamenightPromo = () => {
-    const eventDate = new Date("2025-02-17T00:00:00");
+    const eventDate = new Date("2025-02-18T11:00:00");
     const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
     const navigate = useNavigate();
     function calculateTimeLeft() {
